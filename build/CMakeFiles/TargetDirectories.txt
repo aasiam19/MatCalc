@@ -1,0 +1,3 @@
+/home/xiam/projects/matcalc/build/CMakeFiles/matcalc.dir
+/home/xiam/projects/matcalc/build/CMakeFiles/edit_cache.dir
+/home/xiam/projects/matcalc/build/CMakeFiles/rebuild_cache.dir
