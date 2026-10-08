@@ -1,12 +1,16 @@
 #ifndef MATRIX_DIALOG_H
 #define MATRIX_DIALOG_H
 
-include <QDialog>
+#include <QDialog>
+#include "../matrix/matrix.h"
 
 class MatrixDialog : public QDialog
 {
+private:
+    Matrix matrix;
+
 public:
-MatrixDialog(const Qstring(const Qstring& matrixName, int rows, int columns);
+    MatrixDialog(const QString& matrixName, int rows, int columns);
 };
 
 #endif
