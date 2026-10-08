@@ -1,5 +1,5 @@
 #include "matrix_dialog.h"
-
+#include <QPushButton>
 #include <QDoubleValidator>
 #include <QGridLayout>
 #include <QLineEdit>
@@ -32,6 +32,21 @@ MatrixDialog::MatrixDialog(const QString &matrixName, int rows, int columns,
                 focusNextCell(i, j);
             });
 
+              auto *doneButton = new QPushButton(tr("Done"));
+    doneButton->setAutoDefault(false);   // see note below
+    grid->addWidget(doneButton, rows, 0, 1, columns, Qt::AlignRight);
+
+    connect(doneButton, &QPushButton::clicked, this, [this]()
+    {
+        commitAll();
+        accept();
+    });
+          void MatrixDialog::commitAll()
+{
+    for (int i = 0; i < rows; i++)
+        for (int j = 0; j < columns; j++)
+            commitCell(i, j);
+}
             // Also save when the user clicks away instead of pressing Enter
             connect(cell, &QLineEdit::editingFinished, this, [this, i, j]()
             {
