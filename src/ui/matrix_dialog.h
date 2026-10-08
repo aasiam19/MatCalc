@@ -1,16 +1,26 @@
-#ifndef MATRIX_DIALOG_H
-#define MATRIX_DIALOG_H
+#pragma once
 
 #include <QDialog>
-#include "../matrix/matrix.h"
+#include "matrix.h"   // whatever your Matrix class header is called
+
+class QGridLayout;
+class QLineEdit;
 
 class MatrixDialog : public QDialog
 {
-private:
-    Matrix matrix;
+    Q_OBJECT
 
 public:
-    MatrixDialog(const QString& matrixName, int rows, int columns);
-};
+    MatrixDialog(const QString &matrixName, int rows, int columns,
+                 QWidget *parent = nullptr);
 
-#endif
+private:
+    void commitCell(int i, int j);
+    void focusNextCell(int i, int j);
+    QLineEdit *cellAt(int row, int col) const;
+
+    int rows;
+    int columns;
+    Matrix matrix;
+    QGridLayout *grid;
+};
