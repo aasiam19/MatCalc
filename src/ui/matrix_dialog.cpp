@@ -4,6 +4,7 @@
 #include <QLineEdit>
 
 MatrixDialog::MatrixDialog(const QString& matrixName, int rows, int columns)
+    : matrix(rows, columns)
 {
     setWindowTitle(matrixName);
     resize(500, 400);
@@ -19,6 +20,17 @@ MatrixDialog::MatrixDialog(const QString& matrixName, int rows, int columns)
             cell->setAlignment(Qt::AlignCenter);
 
             grid->addWidget(cell, i, j);
+
+            QObject::connect(cell, &QLineEdit::editingFinished, this, [=]()
+            {
+                bool ok;
+                double value = cell->text().toDouble(&ok);
+
+                if (ok)
+                {
+                    matrix.set(i, j, value);
+                }
+            });
         }
     }
 }
