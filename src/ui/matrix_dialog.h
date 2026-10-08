@@ -23,4 +23,10 @@ private:
     int columns;
     Matrix matrix;
     QGridLayout *grid;
+
+public:
+    const Matrix &result() const { return matrix; }   // so the caller can read the values
+
+private:
+    void commitAll();
 };
