@@ -1,12 +1,13 @@
-#ifndef UI_HELPERS_H
-#define UI_HELPERS_H
+#pragma once
 
-#include <QPushButton>
-#include <QLabel>
-#include <QLineEdit>
+#include <QString>
 
-QPushButton* makeButton(const QString& text);
-QLabel* makeLabel(const QString& text);
-QLineEdit* makeInput();
+class QPushButton;
+class QLabel;
+class QLineEdit;
+class QWidget;
 
-#endif
+[[nodiscard]] QPushButton* makeButton(const QString &text, QWidget *parent = nullptr);
+[[nodiscard]] QLabel*      makeLabel(const QString &text, QWidget *parent = nullptr);
+[[nodiscard]] QLineEdit*   makeInput(const QString &placeholder = QString(),
+                                     QWidget *parent = nullptr);
