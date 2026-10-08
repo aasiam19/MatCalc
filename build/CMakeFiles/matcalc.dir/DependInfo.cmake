@@ -8,9 +8,12 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
+  "" "matcalc_autogen/timestamp" "custom" "matcalc_autogen/deps"
+  "/home/xiam/projects/matcalc/build/matcalc_autogen/mocs_compilation.cpp" "CMakeFiles/matcalc.dir/matcalc_autogen/mocs_compilation.cpp.o" "gcc" "CMakeFiles/matcalc.dir/matcalc_autogen/mocs_compilation.cpp.o.d"
   "/home/xiam/projects/matcalc/src/main.cpp" "CMakeFiles/matcalc.dir/src/main.cpp.o" "gcc" "CMakeFiles/matcalc.dir/src/main.cpp.o.d"
   "/home/xiam/projects/matcalc/src/matrix/matrix.cpp" "CMakeFiles/matcalc.dir/src/matrix/matrix.cpp.o" "gcc" "CMakeFiles/matcalc.dir/src/matrix/matrix.cpp.o.d"
   "/home/xiam/projects/matcalc/src/ui/main_window.cpp" "CMakeFiles/matcalc.dir/src/ui/main_window.cpp.o" "gcc" "CMakeFiles/matcalc.dir/src/ui/main_window.cpp.o.d"
+  "/home/xiam/projects/matcalc/src/ui/matrix_dialog.cpp" "CMakeFiles/matcalc.dir/src/ui/matrix_dialog.cpp.o" "gcc" "CMakeFiles/matcalc.dir/src/ui/matrix_dialog.cpp.o.d"
   "/home/xiam/projects/matcalc/src/ui/ui_helpers.cpp" "CMakeFiles/matcalc.dir/src/ui/ui_helpers.cpp.o" "gcc" "CMakeFiles/matcalc.dir/src/ui/ui_helpers.cpp.o.d"
   )
 

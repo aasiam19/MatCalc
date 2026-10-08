@@ -1,7 +1,8 @@
 #pragma once
 
 #include <QDialog>
-#include "matrix.h"   // whatever your Matrix class header is called
+#include "../matrix/matrix.h"
+ // whatever your Matrix class header is called
 
 class QGridLayout;
 class QLineEdit;

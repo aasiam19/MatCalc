@@ -69,10 +69,30 @@ include CMakeFiles/matcalc.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/matcalc.dir/flags.make
 
+matcalc_autogen/timestamp: /usr/lib/qt6/libexec/moc
+matcalc_autogen/timestamp: CMakeFiles/matcalc.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=/home/xiam/projects/matcalc/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Automatic MOC for target matcalc"
+	/usr/bin/cmake -E cmake_autogen /home/xiam/projects/matcalc/build/CMakeFiles/matcalc_autogen.dir/AutogenInfo.json ""
+	/usr/bin/cmake -E touch /home/xiam/projects/matcalc/build/matcalc_autogen/timestamp
+
+CMakeFiles/matcalc.dir/matcalc_autogen/mocs_compilation.cpp.o: CMakeFiles/matcalc.dir/flags.make
+CMakeFiles/matcalc.dir/matcalc_autogen/mocs_compilation.cpp.o: matcalc_autogen/mocs_compilation.cpp
+CMakeFiles/matcalc.dir/matcalc_autogen/mocs_compilation.cpp.o: CMakeFiles/matcalc.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/xiam/projects/matcalc/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/matcalc.dir/matcalc_autogen/mocs_compilation.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/matcalc.dir/matcalc_autogen/mocs_compilation.cpp.o -MF CMakeFiles/matcalc.dir/matcalc_autogen/mocs_compilation.cpp.o.d -o CMakeFiles/matcalc.dir/matcalc_autogen/mocs_compilation.cpp.o -c /home/xiam/projects/matcalc/build/matcalc_autogen/mocs_compilation.cpp
+
+CMakeFiles/matcalc.dir/matcalc_autogen/mocs_compilation.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/matcalc.dir/matcalc_autogen/mocs_compilation.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/xiam/projects/matcalc/build/matcalc_autogen/mocs_compilation.cpp > CMakeFiles/matcalc.dir/matcalc_autogen/mocs_compilation.cpp.i
+
+CMakeFiles/matcalc.dir/matcalc_autogen/mocs_compilation.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/matcalc.dir/matcalc_autogen/mocs_compilation.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/xiam/projects/matcalc/build/matcalc_autogen/mocs_compilation.cpp -o CMakeFiles/matcalc.dir/matcalc_autogen/mocs_compilation.cpp.s
+
 CMakeFiles/matcalc.dir/src/main.cpp.o: CMakeFiles/matcalc.dir/flags.make
 CMakeFiles/matcalc.dir/src/main.cpp.o: /home/xiam/projects/matcalc/src/main.cpp
 CMakeFiles/matcalc.dir/src/main.cpp.o: CMakeFiles/matcalc.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/xiam/projects/matcalc/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/matcalc.dir/src/main.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/xiam/projects/matcalc/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/matcalc.dir/src/main.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/matcalc.dir/src/main.cpp.o -MF CMakeFiles/matcalc.dir/src/main.cpp.o.d -o CMakeFiles/matcalc.dir/src/main.cpp.o -c /home/xiam/projects/matcalc/src/main.cpp
 
 CMakeFiles/matcalc.dir/src/main.cpp.i: cmake_force
@@ -86,7 +106,7 @@ CMakeFiles/matcalc.dir/src/main.cpp.s: cmake_force
 CMakeFiles/matcalc.dir/src/ui/ui_helpers.cpp.o: CMakeFiles/matcalc.dir/flags.make
 CMakeFiles/matcalc.dir/src/ui/ui_helpers.cpp.o: /home/xiam/projects/matcalc/src/ui/ui_helpers.cpp
 CMakeFiles/matcalc.dir/src/ui/ui_helpers.cpp.o: CMakeFiles/matcalc.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/xiam/projects/matcalc/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/matcalc.dir/src/ui/ui_helpers.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/xiam/projects/matcalc/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/matcalc.dir/src/ui/ui_helpers.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/matcalc.dir/src/ui/ui_helpers.cpp.o -MF CMakeFiles/matcalc.dir/src/ui/ui_helpers.cpp.o.d -o CMakeFiles/matcalc.dir/src/ui/ui_helpers.cpp.o -c /home/xiam/projects/matcalc/src/ui/ui_helpers.cpp
 
 CMakeFiles/matcalc.dir/src/ui/ui_helpers.cpp.i: cmake_force
@@ -100,7 +120,7 @@ CMakeFiles/matcalc.dir/src/ui/ui_helpers.cpp.s: cmake_force
 CMakeFiles/matcalc.dir/src/ui/main_window.cpp.o: CMakeFiles/matcalc.dir/flags.make
 CMakeFiles/matcalc.dir/src/ui/main_window.cpp.o: /home/xiam/projects/matcalc/src/ui/main_window.cpp
 CMakeFiles/matcalc.dir/src/ui/main_window.cpp.o: CMakeFiles/matcalc.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/xiam/projects/matcalc/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/matcalc.dir/src/ui/main_window.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/xiam/projects/matcalc/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/matcalc.dir/src/ui/main_window.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/matcalc.dir/src/ui/main_window.cpp.o -MF CMakeFiles/matcalc.dir/src/ui/main_window.cpp.o.d -o CMakeFiles/matcalc.dir/src/ui/main_window.cpp.o -c /home/xiam/projects/matcalc/src/ui/main_window.cpp
 
 CMakeFiles/matcalc.dir/src/ui/main_window.cpp.i: cmake_force
@@ -111,10 +131,24 @@ CMakeFiles/matcalc.dir/src/ui/main_window.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/matcalc.dir/src/ui/main_window.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/xiam/projects/matcalc/src/ui/main_window.cpp -o CMakeFiles/matcalc.dir/src/ui/main_window.cpp.s
 
+CMakeFiles/matcalc.dir/src/ui/matrix_dialog.cpp.o: CMakeFiles/matcalc.dir/flags.make
+CMakeFiles/matcalc.dir/src/ui/matrix_dialog.cpp.o: /home/xiam/projects/matcalc/src/ui/matrix_dialog.cpp
+CMakeFiles/matcalc.dir/src/ui/matrix_dialog.cpp.o: CMakeFiles/matcalc.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/xiam/projects/matcalc/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/matcalc.dir/src/ui/matrix_dialog.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/matcalc.dir/src/ui/matrix_dialog.cpp.o -MF CMakeFiles/matcalc.dir/src/ui/matrix_dialog.cpp.o.d -o CMakeFiles/matcalc.dir/src/ui/matrix_dialog.cpp.o -c /home/xiam/projects/matcalc/src/ui/matrix_dialog.cpp
+
+CMakeFiles/matcalc.dir/src/ui/matrix_dialog.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/matcalc.dir/src/ui/matrix_dialog.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/xiam/projects/matcalc/src/ui/matrix_dialog.cpp > CMakeFiles/matcalc.dir/src/ui/matrix_dialog.cpp.i
+
+CMakeFiles/matcalc.dir/src/ui/matrix_dialog.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/matcalc.dir/src/ui/matrix_dialog.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/xiam/projects/matcalc/src/ui/matrix_dialog.cpp -o CMakeFiles/matcalc.dir/src/ui/matrix_dialog.cpp.s
+
 CMakeFiles/matcalc.dir/src/matrix/matrix.cpp.o: CMakeFiles/matcalc.dir/flags.make
 CMakeFiles/matcalc.dir/src/matrix/matrix.cpp.o: /home/xiam/projects/matcalc/src/matrix/matrix.cpp
 CMakeFiles/matcalc.dir/src/matrix/matrix.cpp.o: CMakeFiles/matcalc.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/xiam/projects/matcalc/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/matcalc.dir/src/matrix/matrix.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/xiam/projects/matcalc/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/matcalc.dir/src/matrix/matrix.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/matcalc.dir/src/matrix/matrix.cpp.o -MF CMakeFiles/matcalc.dir/src/matrix/matrix.cpp.o.d -o CMakeFiles/matcalc.dir/src/matrix/matrix.cpp.o -c /home/xiam/projects/matcalc/src/matrix/matrix.cpp
 
 CMakeFiles/matcalc.dir/src/matrix/matrix.cpp.i: cmake_force
@@ -127,17 +161,21 @@ CMakeFiles/matcalc.dir/src/matrix/matrix.cpp.s: cmake_force
 
 # Object files for target matcalc
 matcalc_OBJECTS = \
+"CMakeFiles/matcalc.dir/matcalc_autogen/mocs_compilation.cpp.o" \
 "CMakeFiles/matcalc.dir/src/main.cpp.o" \
 "CMakeFiles/matcalc.dir/src/ui/ui_helpers.cpp.o" \
 "CMakeFiles/matcalc.dir/src/ui/main_window.cpp.o" \
+"CMakeFiles/matcalc.dir/src/ui/matrix_dialog.cpp.o" \
 "CMakeFiles/matcalc.dir/src/matrix/matrix.cpp.o"
 
 # External object files for target matcalc
 matcalc_EXTERNAL_OBJECTS =
 
+matcalc: CMakeFiles/matcalc.dir/matcalc_autogen/mocs_compilation.cpp.o
 matcalc: CMakeFiles/matcalc.dir/src/main.cpp.o
 matcalc: CMakeFiles/matcalc.dir/src/ui/ui_helpers.cpp.o
 matcalc: CMakeFiles/matcalc.dir/src/ui/main_window.cpp.o
+matcalc: CMakeFiles/matcalc.dir/src/ui/matrix_dialog.cpp.o
 matcalc: CMakeFiles/matcalc.dir/src/matrix/matrix.cpp.o
 matcalc: CMakeFiles/matcalc.dir/build.make
 matcalc: /usr/lib/x86_64-linux-gnu/libQt6Widgets.so.6.4.2
@@ -146,7 +184,7 @@ matcalc: /usr/lib/x86_64-linux-gnu/libQt6Core.so.6.4.2
 matcalc: /usr/lib/x86_64-linux-gnu/libGLX.so
 matcalc: /usr/lib/x86_64-linux-gnu/libOpenGL.so
 matcalc: CMakeFiles/matcalc.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/xiam/projects/matcalc/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking CXX executable matcalc"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/xiam/projects/matcalc/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Linking CXX executable matcalc"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/matcalc.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -157,7 +195,7 @@ CMakeFiles/matcalc.dir/clean:
 	$(CMAKE_COMMAND) -P CMakeFiles/matcalc.dir/cmake_clean.cmake
 .PHONY : CMakeFiles/matcalc.dir/clean
 
-CMakeFiles/matcalc.dir/depend:
+CMakeFiles/matcalc.dir/depend: matcalc_autogen/timestamp
 	cd /home/xiam/projects/matcalc/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/xiam/projects/matcalc /home/xiam/projects/matcalc /home/xiam/projects/matcalc/build /home/xiam/projects/matcalc/build /home/xiam/projects/matcalc/build/CMakeFiles/matcalc.dir/DependInfo.cmake "--color=$(COLOR)"
 .PHONY : CMakeFiles/matcalc.dir/depend
 

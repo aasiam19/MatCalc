@@ -150,6 +150,7 @@ set(CMAKE_MAKEFILE_OUTPUTS
 
 # Byproducts of CMake generate step:
 set(CMAKE_MAKEFILE_PRODUCTS
+  "CMakeFiles/matcalc_autogen.dir/AutogenInfo.json"
   ".qt/QtDeploySupport.cmake"
   "CMakeFiles/CMakeDirectoryInformation.cmake"
   )
@@ -157,4 +158,6 @@ set(CMAKE_MAKEFILE_PRODUCTS
 # Dependency information for all targets:
 set(CMAKE_DEPEND_INFO_FILES
   "CMakeFiles/matcalc.dir/DependInfo.cmake"
+  "CMakeFiles/matcalc_autogen_timestamp_deps.dir/DependInfo.cmake"
+  "CMakeFiles/matcalc_autogen.dir/DependInfo.cmake"
   )

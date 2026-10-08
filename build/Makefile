@@ -129,6 +129,56 @@ matcalc/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/matcalc.dir/build.make CMakeFiles/matcalc.dir/build
 .PHONY : matcalc/fast
 
+#=============================================================================
+# Target rules for targets named matcalc_autogen_timestamp_deps
+
+# Build rule for target.
+matcalc_autogen_timestamp_deps: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 matcalc_autogen_timestamp_deps
+.PHONY : matcalc_autogen_timestamp_deps
+
+# fast build rule for target.
+matcalc_autogen_timestamp_deps/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/matcalc_autogen_timestamp_deps.dir/build.make CMakeFiles/matcalc_autogen_timestamp_deps.dir/build
+.PHONY : matcalc_autogen_timestamp_deps/fast
+
+#=============================================================================
+# Target rules for targets named matcalc_autogen
+
+# Build rule for target.
+matcalc_autogen: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 matcalc_autogen
+.PHONY : matcalc_autogen
+
+# fast build rule for target.
+matcalc_autogen/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/matcalc_autogen.dir/build.make CMakeFiles/matcalc_autogen.dir/build
+.PHONY : matcalc_autogen/fast
+
+matcalc_autogen/mocs_compilation.o: matcalc_autogen/mocs_compilation.cpp.o
+.PHONY : matcalc_autogen/mocs_compilation.o
+
+# target to build an object file
+matcalc_autogen/mocs_compilation.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/matcalc.dir/build.make CMakeFiles/matcalc.dir/matcalc_autogen/mocs_compilation.cpp.o
+.PHONY : matcalc_autogen/mocs_compilation.cpp.o
+
+matcalc_autogen/mocs_compilation.i: matcalc_autogen/mocs_compilation.cpp.i
+.PHONY : matcalc_autogen/mocs_compilation.i
+
+# target to preprocess a source file
+matcalc_autogen/mocs_compilation.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/matcalc.dir/build.make CMakeFiles/matcalc.dir/matcalc_autogen/mocs_compilation.cpp.i
+.PHONY : matcalc_autogen/mocs_compilation.cpp.i
+
+matcalc_autogen/mocs_compilation.s: matcalc_autogen/mocs_compilation.cpp.s
+.PHONY : matcalc_autogen/mocs_compilation.s
+
+# target to generate assembly for a file
+matcalc_autogen/mocs_compilation.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/matcalc.dir/build.make CMakeFiles/matcalc.dir/matcalc_autogen/mocs_compilation.cpp.s
+.PHONY : matcalc_autogen/mocs_compilation.cpp.s
+
 src/main.o: src/main.cpp.o
 .PHONY : src/main.o
 
@@ -201,6 +251,30 @@ src/ui/main_window.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/matcalc.dir/build.make CMakeFiles/matcalc.dir/src/ui/main_window.cpp.s
 .PHONY : src/ui/main_window.cpp.s
 
+src/ui/matrix_dialog.o: src/ui/matrix_dialog.cpp.o
+.PHONY : src/ui/matrix_dialog.o
+
+# target to build an object file
+src/ui/matrix_dialog.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/matcalc.dir/build.make CMakeFiles/matcalc.dir/src/ui/matrix_dialog.cpp.o
+.PHONY : src/ui/matrix_dialog.cpp.o
+
+src/ui/matrix_dialog.i: src/ui/matrix_dialog.cpp.i
+.PHONY : src/ui/matrix_dialog.i
+
+# target to preprocess a source file
+src/ui/matrix_dialog.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/matcalc.dir/build.make CMakeFiles/matcalc.dir/src/ui/matrix_dialog.cpp.i
+.PHONY : src/ui/matrix_dialog.cpp.i
+
+src/ui/matrix_dialog.s: src/ui/matrix_dialog.cpp.s
+.PHONY : src/ui/matrix_dialog.s
+
+# target to generate assembly for a file
+src/ui/matrix_dialog.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/matcalc.dir/build.make CMakeFiles/matcalc.dir/src/ui/matrix_dialog.cpp.s
+.PHONY : src/ui/matrix_dialog.cpp.s
+
 src/ui/ui_helpers.o: src/ui/ui_helpers.cpp.o
 .PHONY : src/ui/ui_helpers.o
 
@@ -233,7 +307,12 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
+	@echo "... matcalc_autogen"
+	@echo "... matcalc_autogen_timestamp_deps"
 	@echo "... matcalc"
+	@echo "... matcalc_autogen/mocs_compilation.o"
+	@echo "... matcalc_autogen/mocs_compilation.i"
+	@echo "... matcalc_autogen/mocs_compilation.s"
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"
@@ -243,6 +322,9 @@ help:
 	@echo "... src/ui/main_window.o"
 	@echo "... src/ui/main_window.i"
 	@echo "... src/ui/main_window.s"
+	@echo "... src/ui/matrix_dialog.o"
+	@echo "... src/ui/matrix_dialog.i"
+	@echo "... src/ui/matrix_dialog.s"
 	@echo "... src/ui/ui_helpers.o"
 	@echo "... src/ui/ui_helpers.i"
 	@echo "... src/ui/ui_helpers.s"
