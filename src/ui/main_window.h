@@ -1,5 +1,6 @@
-#ifndef MAIN_WINDOW_H
-#define MAIN_WINDOW_H
+#pragma once
+
+#include "matrix/matrix_store.h"
 
 #include <QWidget>
 
@@ -7,6 +8,7 @@ class MainWindow : public QWidget
 {
 public:
     MainWindow();
-};
 
-#endif
+private:
+    MatrixStore store;
+};

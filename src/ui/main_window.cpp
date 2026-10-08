@@ -1,13 +1,14 @@
-#include "main_window.h"
-#include "matrix_dialog.h"
-#include "ui_helpers.h"
-
+#include "ui/main_window.h"
+#include "ui/matrix_dialog.h"
+#include "ui/ui_helpers.h"
 #include <QVBoxLayout>
 #include <QHBoxLayout>
 #include <QSpinBox>
 #include <QLineEdit>
 #include <QLabel>
 #include <QPushButton>
+#include <QMessageBox>
+#include <QStringList>
 
 MainWindow::MainWindow()
 {
@@ -52,15 +53,34 @@ MainWindow::MainWindow()
     QPushButton *okButton = makeButton("OPEN");
     mainLayout->addWidget(okButton);
 
+    QLabel *storedLabel = makeLabel("Stored matrices: (none)");
+    mainLayout->addWidget(storedLabel);
+
     QObject::connect(okButton, &QPushButton::clicked, this, [=]()
     {
+        const QString name = nameInput->text().trimmed();
+        if (name.isEmpty())
+        {
+            QMessageBox::warning(this, "Matrix Calculator",
+                                 "Please enter a matrix name.");
+            return;
+        }
+
         MatrixDialog dialog(
-            nameInput->text(),
+            name,
             rowsBox->value(),
             columnsBox->value(),
             this
         );
 
-        dialog.exec();
+        if (dialog.exec() != QDialog::Accepted)
+            return;
+
+        store.put(name.toStdString(), dialog.result());
+
+        QStringList names;
+        for (const std::string &n : store.names())
+            names << QString::fromStdString(n);
+        storedLabel->setText("Stored matrices: " + names.join(", "));
     });
 }

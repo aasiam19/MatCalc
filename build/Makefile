@@ -227,6 +227,30 @@ src/matrix/matrix.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/matcalc.dir/build.make CMakeFiles/matcalc.dir/src/matrix/matrix.cpp.s
 .PHONY : src/matrix/matrix.cpp.s
 
+src/matrix/matrix_store.o: src/matrix/matrix_store.cpp.o
+.PHONY : src/matrix/matrix_store.o
+
+# target to build an object file
+src/matrix/matrix_store.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/matcalc.dir/build.make CMakeFiles/matcalc.dir/src/matrix/matrix_store.cpp.o
+.PHONY : src/matrix/matrix_store.cpp.o
+
+src/matrix/matrix_store.i: src/matrix/matrix_store.cpp.i
+.PHONY : src/matrix/matrix_store.i
+
+# target to preprocess a source file
+src/matrix/matrix_store.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/matcalc.dir/build.make CMakeFiles/matcalc.dir/src/matrix/matrix_store.cpp.i
+.PHONY : src/matrix/matrix_store.cpp.i
+
+src/matrix/matrix_store.s: src/matrix/matrix_store.cpp.s
+.PHONY : src/matrix/matrix_store.s
+
+# target to generate assembly for a file
+src/matrix/matrix_store.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/matcalc.dir/build.make CMakeFiles/matcalc.dir/src/matrix/matrix_store.cpp.s
+.PHONY : src/matrix/matrix_store.cpp.s
+
 src/ui/main_window.o: src/ui/main_window.cpp.o
 .PHONY : src/ui/main_window.o
 
@@ -319,6 +343,9 @@ help:
 	@echo "... src/matrix/matrix.o"
 	@echo "... src/matrix/matrix.i"
 	@echo "... src/matrix/matrix.s"
+	@echo "... src/matrix/matrix_store.o"
+	@echo "... src/matrix/matrix_store.i"
+	@echo "... src/matrix/matrix_store.s"
 	@echo "... src/ui/main_window.o"
 	@echo "... src/ui/main_window.i"
 	@echo "... src/ui/main_window.s"

@@ -197,6 +197,12 @@
 			null
 		],
 		[
+			"/home/xiam/projects/matcalc/src/matrix/matrix_store.h",
+			"Mu",
+			"IE2I3AFKW6/moc_matrix_store.cpp",
+			null
+		],
+		[
 			"/home/xiam/projects/matcalc/src/ui/main_window.h",
 			"Mu",
 			"YPKJ5OE7LN/moc_main_window.cpp",
@@ -276,6 +282,7 @@
 	[
 		[ "/home/xiam/projects/matcalc/src/main.cpp", "Mu", null ],
 		[ "/home/xiam/projects/matcalc/src/matrix/matrix.cpp", "Mu", null ],
+		[ "/home/xiam/projects/matcalc/src/matrix/matrix_store.cpp", "Mu", null ],
 		[ "/home/xiam/projects/matcalc/src/ui/main_window.cpp", "Mu", null ],
 		[ "/home/xiam/projects/matcalc/src/ui/matrix_dialog.cpp", "Mu", null ],
 		[ "/home/xiam/projects/matcalc/src/ui/ui_helpers.cpp", "Mu", null ]

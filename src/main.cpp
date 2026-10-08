@@ -1,16 +1,13 @@
-#include<QWidget>
-#include<QVBoxLayout>
-#include<QHBoxLayout>
+#include "ui/main_window.h"
+
 #include <QApplication>
-#include <ui/main_window.h>
 
-int main(int argc, char *argv[]){
+int main(int argc, char *argv[])
+{
+    QApplication app(argc, argv);
 
-QApplication app(argc, argv);
+    MainWindow window;
+    window.show();
 
-MainWindow window;
-window.show();
-
-return app.exec();
-
+    return app.exec();
 }

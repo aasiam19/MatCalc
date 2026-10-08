@@ -1,8 +1,8 @@
 #pragma once
 
+#include "matrix/matrix.h"
+
 #include <QDialog>
-#include "../matrix/matrix.h"
- // whatever your Matrix class header is called
 
 class QGridLayout;
 class QLineEdit;
@@ -15,8 +15,10 @@ public:
     MatrixDialog(const QString &matrixName, int rows, int columns,
                  QWidget *parent = nullptr);
 
+    const Matrix &result() const { return matrix; }
+
 private:
-    void commitCell(int i, int j);
+    void readCells();
     void focusNextCell(int i, int j);
     QLineEdit *cellAt(int row, int col) const;
 
@@ -24,10 +26,4 @@ private:
     int columns;
     Matrix matrix;
     QGridLayout *grid;
-
-public:
-    const Matrix &result() const { return matrix; }   // so the caller can read the values
-
-private:
-    void commitAll();
 };

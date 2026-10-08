@@ -1,8 +1,9 @@
-#include "matrix_dialog.h"
-#include <QPushButton>
+#include "ui/matrix_dialog.h"
+
 #include <QDoubleValidator>
 #include <QGridLayout>
 #include <QLineEdit>
+#include <QPushButton>
 
 MatrixDialog::MatrixDialog(const QString &matrixName, int rows, int columns,
                            QWidget *parent)
@@ -28,47 +29,34 @@ MatrixDialog::MatrixDialog(const QString &matrixName, int rows, int columns,
 
             connect(cell, &QLineEdit::returnPressed, this, [this, i, j]()
             {
-                commitCell(i, j);
                 focusNextCell(i, j);
-            });
-
-            // Also save when the user clicks away instead of pressing Enter
-            connect(cell, &QLineEdit::editingFinished, this, [this, i, j]()
-            {
-                commitCell(i, j);
             });
         }
     }
 
-    // Done button: created once, after all cells
     auto *doneButton = new QPushButton(tr("Done"));
     doneButton->setAutoDefault(false);
     grid->addWidget(doneButton, rows, 0, 1, columns, Qt::AlignRight);
 
     connect(doneButton, &QPushButton::clicked, this, [this]()
     {
-        commitAll();
+        readCells();
         accept();
     });
 }
 
-void MatrixDialog::commitAll()
+void MatrixDialog::readCells()
 {
     for (int i = 0; i < rows; i++)
+    {
         for (int j = 0; j < columns; j++)
-            commitCell(i, j);
-}
-
-void MatrixDialog::commitCell(int i, int j)
-{
-    auto *cell = cellAt(i, j);
-    if (!cell)
-        return;
-
-    bool ok = false;
-    const double value = cell->text().toDouble(&ok);
-    if (ok)
-        matrix.set(i, j, value);
+        {
+            bool ok = false;
+            const double value = cellAt(i, j)->text().toDouble(&ok);
+            if (ok)
+                matrix.set(i, j, value);
+        }
+    }
 }
 
 void MatrixDialog::focusNextCell(int i, int j)
