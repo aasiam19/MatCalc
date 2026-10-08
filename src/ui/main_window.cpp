@@ -6,6 +6,8 @@
 #include <QHBoxLayout>
 #include <QSpinBox>
 #include <QLineEdit>
+#include <QLabel>
+#include <QPushButton>
 
 MainWindow::MainWindow()
 {
@@ -55,7 +57,8 @@ MainWindow::MainWindow()
         MatrixDialog dialog(
             nameInput->text(),
             rowsBox->value(),
-            columnsBox->value()
+            columnsBox->value(),
+            this
         );
 
         dialog.exec();
