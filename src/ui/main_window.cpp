@@ -1,10 +1,11 @@
 #include "main_window.h"
-#include "ui_helpers.h"
 #include "matrix_dialog.h"
+#include "ui_helpers.h"
+
 #include <QVBoxLayout>
 #include <QHBoxLayout>
 #include <QSpinBox>
-#include <QComboBox>
+#include <QLineEdit>
 
 MainWindow::MainWindow()
 {
@@ -16,20 +17,16 @@ MainWindow::MainWindow()
     QLabel *title = makeLabel("MATRIX CALCULATOR");
     mainLayout->addWidget(title);
 
-    QHBoxLayout *matrixLayout = new QHBoxLayout;
+    QHBoxLayout *nameLayout = new QHBoxLayout;
 
-    QLabel *matrixLabel = makeLabel("Matrix:");
-    QComboBox *matrixBox = new QComboBox;
+    QLabel *nameLabel = makeLabel("Matrix Name:");
+    QLineEdit *nameInput = makeInput();
+    nameInput->setText("Mat A");
 
-    matrixBox->addItem("Mat A");
-    matrixBox->addItem("Mat B");
-    matrixBox->addItem("Mat C");
-    matrixBox->addItem("Mat D");
+    nameLayout->addWidget(nameLabel);
+    nameLayout->addWidget(nameInput);
 
-    matrixLayout->addWidget(matrixLabel);
-    matrixLayout->addWidget(matrixBox);
-
-    mainLayout->addLayout(matrixLayout);
+    mainLayout->addLayout(nameLayout);
 
     QHBoxLayout *sizeLayout = new QHBoxLayout;
 
@@ -50,17 +47,17 @@ MainWindow::MainWindow()
 
     mainLayout->addLayout(sizeLayout);
 
-   QPushButton *okButton = makeButton("OK");
-mainLayout->addWidget(okButton);
+    QPushButton *okButton = makeButton("OPEN");
+    mainLayout->addWidget(okButton);
 
-QObject::connect(okButton, &QPushButton::clicked, this, [=]()
-{
-    MatrixDialog dialog(
-        matrixBox->currentText(),
-        rowsBox->value(),
-        columnsBox->value()
-    );
+    QObject::connect(okButton, &QPushButton::clicked, this, [=]()
+    {
+        MatrixDialog dialog(
+            nameInput->text(),
+            rowsBox->value(),
+            columnsBox->value()
+        );
 
-    dialog.exec();
-});
+        dialog.exec();
+    });
 }
