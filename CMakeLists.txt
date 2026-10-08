@@ -11,6 +11,7 @@ add_executable(matcalc
     src/main.cpp
     src/ui/ui_helpers.cpp
     src/ui/main_window.cpp
+    src/ui/matrix_dialog.cpp
     src/matrix/matrix.cpp
 )
 
