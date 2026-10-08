@@ -1,19 +1,22 @@
 #include "ui_helpers.h"
 
-QPushButton* makeButton(const QString& text)
+#include <QLabel>
+#include <QLineEdit>
+#include <QPushButton>
+
+QPushButton* makeButton(const QString &text, QWidget *parent)
 {
-QPushButton *button = new QPushButton(text);
-return button;
+    return new QPushButton(text, parent);
 }
 
-QLabel* makeLabel(const QString& text)
+QLabel* makeLabel(const QString &text, QWidget *parent)
 {
-QLabel* label= new QLabel(text);
-return label;
-}
-QLineEdit* makeInput()
-{
-QLineEdit *input = new QLineEdit;
-return input;
+    return new QLabel(text, parent);
 }
 
+QLineEdit* makeInput(const QString &placeholder, QWidget *parent)
+{
+    auto *input = new QLineEdit(parent);
+    input->setPlaceholderText(placeholder);
+    return input;
+}
