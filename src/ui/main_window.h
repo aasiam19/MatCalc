@@ -6,6 +6,7 @@
 class MainWindow : public QWidget
 {
 public:
-	MainWindow();
+    MainWindow();
 };
+
 #endif

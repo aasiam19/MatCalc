@@ -1,7 +1,7 @@
 #include "main_window.h"
 
-MainWindow::()
+MainWindow::MainWindow()
 {
-setWIndowTitle("Matrix Calculator v1.0");
-resize(800,500);
+    setWindowTitle("Matrix Calculator v1.0");
+    resize(800, 500);
 }

@@ -177,6 +177,30 @@ src/matrix/matrix.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/matcalc.dir/build.make CMakeFiles/matcalc.dir/src/matrix/matrix.cpp.s
 .PHONY : src/matrix/matrix.cpp.s
 
+src/ui/main_window.o: src/ui/main_window.cpp.o
+.PHONY : src/ui/main_window.o
+
+# target to build an object file
+src/ui/main_window.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/matcalc.dir/build.make CMakeFiles/matcalc.dir/src/ui/main_window.cpp.o
+.PHONY : src/ui/main_window.cpp.o
+
+src/ui/main_window.i: src/ui/main_window.cpp.i
+.PHONY : src/ui/main_window.i
+
+# target to preprocess a source file
+src/ui/main_window.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/matcalc.dir/build.make CMakeFiles/matcalc.dir/src/ui/main_window.cpp.i
+.PHONY : src/ui/main_window.cpp.i
+
+src/ui/main_window.s: src/ui/main_window.cpp.s
+.PHONY : src/ui/main_window.s
+
+# target to generate assembly for a file
+src/ui/main_window.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/matcalc.dir/build.make CMakeFiles/matcalc.dir/src/ui/main_window.cpp.s
+.PHONY : src/ui/main_window.cpp.s
+
 src/ui/ui_helpers.o: src/ui/ui_helpers.cpp.o
 .PHONY : src/ui/ui_helpers.o
 
@@ -216,6 +240,9 @@ help:
 	@echo "... src/matrix/matrix.o"
 	@echo "... src/matrix/matrix.i"
 	@echo "... src/matrix/matrix.s"
+	@echo "... src/ui/main_window.o"
+	@echo "... src/ui/main_window.i"
+	@echo "... src/ui/main_window.s"
 	@echo "... src/ui/ui_helpers.o"
 	@echo "... src/ui/ui_helpers.i"
 	@echo "... src/ui/ui_helpers.s"

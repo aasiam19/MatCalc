@@ -81,12 +81,12 @@ clean: CMakeFiles/matcalc.dir/clean
 CMakeFiles/matcalc.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/matcalc.dir/build.make CMakeFiles/matcalc.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/matcalc.dir/build.make CMakeFiles/matcalc.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/xiam/projects/matcalc/build/CMakeFiles --progress-num=1,2,3,4 "Built target matcalc"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/xiam/projects/matcalc/build/CMakeFiles --progress-num=1,2,3,4,5 "Built target matcalc"
 .PHONY : CMakeFiles/matcalc.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/matcalc.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/xiam/projects/matcalc/build/CMakeFiles 4
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/xiam/projects/matcalc/build/CMakeFiles 5
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/matcalc.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/xiam/projects/matcalc/build/CMakeFiles 0
 .PHONY : CMakeFiles/matcalc.dir/rule

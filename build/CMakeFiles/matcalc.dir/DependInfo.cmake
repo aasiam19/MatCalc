@@ -10,6 +10,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/home/xiam/projects/matcalc/src/main.cpp" "CMakeFiles/matcalc.dir/src/main.cpp.o" "gcc" "CMakeFiles/matcalc.dir/src/main.cpp.o.d"
   "/home/xiam/projects/matcalc/src/matrix/matrix.cpp" "CMakeFiles/matcalc.dir/src/matrix/matrix.cpp.o" "gcc" "CMakeFiles/matcalc.dir/src/matrix/matrix.cpp.o.d"
+  "/home/xiam/projects/matcalc/src/ui/main_window.cpp" "CMakeFiles/matcalc.dir/src/ui/main_window.cpp.o" "gcc" "CMakeFiles/matcalc.dir/src/ui/main_window.cpp.o.d"
   "/home/xiam/projects/matcalc/src/ui/ui_helpers.cpp" "CMakeFiles/matcalc.dir/src/ui/ui_helpers.cpp.o" "gcc" "CMakeFiles/matcalc.dir/src/ui/ui_helpers.cpp.o.d"
   )
 
