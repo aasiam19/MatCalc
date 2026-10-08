@@ -12,6 +12,7 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/home/xiam/projects/matcalc/build/matcalc_autogen/mocs_compilation.cpp" "CMakeFiles/matcalc.dir/matcalc_autogen/mocs_compilation.cpp.o" "gcc" "CMakeFiles/matcalc.dir/matcalc_autogen/mocs_compilation.cpp.o.d"
   "/home/xiam/projects/matcalc/src/main.cpp" "CMakeFiles/matcalc.dir/src/main.cpp.o" "gcc" "CMakeFiles/matcalc.dir/src/main.cpp.o.d"
   "/home/xiam/projects/matcalc/src/matrix/matrix.cpp" "CMakeFiles/matcalc.dir/src/matrix/matrix.cpp.o" "gcc" "CMakeFiles/matcalc.dir/src/matrix/matrix.cpp.o.d"
+  "/home/xiam/projects/matcalc/src/matrix/matrix_ops.cpp" "CMakeFiles/matcalc.dir/src/matrix/matrix_ops.cpp.o" "gcc" "CMakeFiles/matcalc.dir/src/matrix/matrix_ops.cpp.o.d"
   "/home/xiam/projects/matcalc/src/matrix/matrix_store.cpp" "CMakeFiles/matcalc.dir/src/matrix/matrix_store.cpp.o" "gcc" "CMakeFiles/matcalc.dir/src/matrix/matrix_store.cpp.o.d"
   "/home/xiam/projects/matcalc/src/ui/main_window.cpp" "CMakeFiles/matcalc.dir/src/ui/main_window.cpp.o" "gcc" "CMakeFiles/matcalc.dir/src/ui/main_window.cpp.o.d"
   "/home/xiam/projects/matcalc/src/ui/matrix_dialog.cpp" "CMakeFiles/matcalc.dir/src/ui/matrix_dialog.cpp.o" "gcc" "CMakeFiles/matcalc.dir/src/ui/matrix_dialog.cpp.o.d"

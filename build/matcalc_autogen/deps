@@ -7,6 +7,8 @@ matcalc_autogen/timestamp: \
 	/home/xiam/projects/matcalc/src/main.cpp \
 	/home/xiam/projects/matcalc/src/matrix/matrix.cpp \
 	/home/xiam/projects/matcalc/src/matrix/matrix.h \
+	/home/xiam/projects/matcalc/src/matrix/matrix_ops.cpp \
+	/home/xiam/projects/matcalc/src/matrix/matrix_ops.h \
 	/home/xiam/projects/matcalc/src/matrix/matrix_store.cpp \
 	/home/xiam/projects/matcalc/src/matrix/matrix_store.h \
 	/home/xiam/projects/matcalc/src/ui/main_window.cpp \
@@ -406,6 +408,7 @@ matcalc_autogen/timestamp: \
 	/usr/include/x86_64-linux-gnu/qt6/QtGui/qtransform.h \
 	/usr/include/x86_64-linux-gnu/qt6/QtGui/qwindowdefs.h \
 	/usr/include/x86_64-linux-gnu/qt6/QtWidgets/QDialog \
+	/usr/include/x86_64-linux-gnu/qt6/QtWidgets/QWidget \
 	/usr/include/x86_64-linux-gnu/qt6/QtWidgets/qdialog.h \
 	/usr/include/x86_64-linux-gnu/qt6/QtWidgets/qsizepolicy.h \
 	/usr/include/x86_64-linux-gnu/qt6/QtWidgets/qtwidgets-config.h \

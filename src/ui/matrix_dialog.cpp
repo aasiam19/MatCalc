@@ -73,7 +73,34 @@ void MatrixDialog::focusNextCell(int i, int j)
 }
 
 QLineEdit *MatrixDialog::cellAt(int row, int col) const
+
+
 {
     QLayoutItem *item = grid->itemAtPosition(row, col);
     return item ? qobject_cast<QLineEdit *>(item->widget()) : nullptr;
+}
+
+
+
+// Puts the numbers of an existing matrix into the input cells.
+void MatrixDialog::setValues(const Matrix &values)
+{
+    // Safety check: the sizes must match, otherwise do nothing.
+    if (values.rows() != rows || values.columns() != columns)
+        return;
+
+    for (int i = 0; i < rows; i++)
+    {
+        for (int j = 0; j < columns; j++)
+        {
+            // Find the input box for this position.
+            QLineEdit *cell = cellAt(i, j);
+            if (!cell)
+                continue;
+
+            // Show the number as text.
+            // 'g' with 15 digits keeps precision but avoids ugly trailing zeros.
+            cell->setText(QString::number(values.get(i, j), 'g', 15));
+        }
+    }
 }

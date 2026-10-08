@@ -15,6 +15,8 @@ add_executable(matcalc
     src/ui/matrix_dialog.cpp
     src/matrix/matrix.cpp
     src/matrix/matrix_store.cpp
+    src/matrix/matrix_store.cpp
+    src/matrix/matrix_ops.cpp
 )
 
 target_include_directories(matcalc PRIVATE

@@ -9,6 +9,8 @@ matcalc_autogen/timestamp: /home/xiam/projects/matcalc/CMakeLists.txt \
   /home/xiam/projects/matcalc/src/main.cpp \
   /home/xiam/projects/matcalc/src/matrix/matrix.cpp \
   /home/xiam/projects/matcalc/src/matrix/matrix.h \
+  /home/xiam/projects/matcalc/src/matrix/matrix_ops.cpp \
+  /home/xiam/projects/matcalc/src/matrix/matrix_ops.h \
   /home/xiam/projects/matcalc/src/matrix/matrix_store.cpp \
   /home/xiam/projects/matcalc/src/matrix/matrix_store.h \
   /home/xiam/projects/matcalc/src/ui/main_window.cpp \
@@ -409,6 +411,7 @@ matcalc_autogen/timestamp: /home/xiam/projects/matcalc/CMakeLists.txt \
   /usr/include/x86_64-linux-gnu/qt6/QtGui/qtransform.h \
   /usr/include/x86_64-linux-gnu/qt6/QtGui/qwindowdefs.h \
   /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QDialog \
+  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QWidget \
   /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qdialog.h \
   /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qsizepolicy.h \
   /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qtwidgets-config.h \
@@ -553,9 +556,12 @@ matcalc_autogen/timestamp: /home/xiam/projects/matcalc/CMakeLists.txt \
   /usr/share/cmake-3.28/Modules/Platform/UnixPaths.cmake
 
 CMakeFiles/matcalc.dir/matcalc_autogen/mocs_compilation.cpp.o: matcalc_autogen/mocs_compilation.cpp \
+  /home/xiam/projects/matcalc/src/ui/main_window.h \
   /home/xiam/projects/matcalc/src/ui/matrix_dialog.h \
+  matcalc_autogen/YPKJ5OE7LN/moc_main_window.cpp \
   matcalc_autogen/YPKJ5OE7LN/moc_matrix_dialog.cpp \
   /home/xiam/projects/matcalc/src/matrix/matrix.h \
+  /home/xiam/projects/matcalc/src/matrix/matrix_store.h \
   /usr/include/alloca.h \
   /usr/include/asm-generic/errno-base.h \
   /usr/include/asm-generic/errno.h \
@@ -930,6 +936,7 @@ CMakeFiles/matcalc.dir/matcalc_autogen/mocs_compilation.cpp.o: matcalc_autogen/m
   /usr/include/x86_64-linux-gnu/qt6/QtGui/qtransform.h \
   /usr/include/x86_64-linux-gnu/qt6/QtGui/qwindowdefs.h \
   /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QDialog \
+  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QWidget \
   /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qdialog.h \
   /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qsizepolicy.h \
   /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qtwidgets-config.h \
@@ -2950,8 +2957,6 @@ CMakeFiles/matcalc.dir/src/ui/ui_helpers.cpp.o: /home/xiam/projects/matcalc/src/
 
 /usr/include/x86_64-linux-gnu/qt6/QtCore/qnativeinterface.h:
 
-/usr/include/x86_64-linux-gnu/qt6/QtCore/qlocale.h:
-
 /usr/include/x86_64-linux-gnu/qt6/QtCore/qcoreevent.h:
 
 /usr/include/x86_64-linux-gnu/qt6/QtCore/qcoreapplication_platform.h:
@@ -2990,13 +2995,15 @@ CMakeFiles/matcalc.dir/src/ui/ui_helpers.cpp.o: /home/xiam/projects/matcalc/src/
 
 /usr/include/c++/13/ctime:
 
-/usr/include/c++/13/bits/hashtable_policy.h:
-
 /usr/include/c++/13/bits/hashtable.h:
 
 /usr/include/c++/13/bits/chrono.h:
 
 matcalc_autogen/YPKJ5OE7LN/moc_matrix_dialog.cpp:
+
+/usr/include/x86_64-linux-gnu/qt6/QtCore/qlocale.h:
+
+matcalc_autogen/YPKJ5OE7LN/moc_main_window.cpp:
 
 matcalc_autogen/mocs_compilation.cpp:
 
@@ -3020,6 +3027,12 @@ matcalc_autogen/mocs_compilation.cpp:
 
 /usr/share/cmake-3.28/Modules/Internal/CheckFlagCommonConfig.cmake:
 
+/usr/share/cmake-3.28/Modules/Internal/CheckCompilerFlag.cmake:
+
+/usr/share/cmake-3.28/Modules/GNUInstallDirs.cmake:
+
+/usr/share/cmake-3.28/Modules/FindVulkan.cmake:
+
 /usr/include/x86_64-linux-gnu/bits/timex.h:
 
 /usr/include/x86_64-linux-gnu/bits/stdio_lim.h:
@@ -3029,10 +3042,6 @@ matcalc_autogen/mocs_compilation.cpp:
 /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qspinbox.h:
 
 /usr/share/cmake-3.28/Modules/Compiler/GNU.cmake:
-
-/usr/share/cmake-3.28/Modules/Internal/CheckCompilerFlag.cmake:
-
-/usr/include/x86_64-linux-gnu/bits/types/__fpos64_t.h:
 
 /usr/include/time.h:
 
@@ -3118,9 +3127,9 @@ matcalc_autogen/mocs_compilation.cpp:
 
 /usr/include/c++/13/bits/range_access.h:
 
-/usr/include/c++/13/initializer_list:
-
 /usr/include/c++/13/tr1/bessel_function.tcc:
+
+/usr/include/c++/13/initializer_list:
 
 /usr/include/x86_64-linux-gnu/qt6/QtCore/qalgorithms.h:
 
@@ -3218,13 +3227,23 @@ matcalc_autogen/moc_predefs.h:
 
 /usr/include/c++/13/chrono:
 
-/usr/include/x86_64-linux-gnu/bits/timesize.h:
+/usr/include/x86_64-linux-gnu/bits/stdint-least.h:
 
-/usr/include/x86_64-linux-gnu/qt6/QtCore/qcontiguouscache.h:
+/usr/include/c++/13/tr1/gamma.tcc:
 
-/usr/include/c++/13/bits/functional_hash.h:
+/usr/include/c++/13/ext/atomicity.h:
+
+/usr/include/x86_64-linux-gnu/bits/types/struct_tm.h:
+
+/usr/include/c++/13/iterator:
+
+/home/xiam/projects/matcalc/src/ui/matrix_dialog.h:
 
 /usr/include/c++/13/typeinfo:
+
+/usr/include/c++/13/cctype:
+
+/usr/lib/x86_64-linux-gnu/cmake/Qt6Gui/Qt6GuiVersionlessTargets.cmake:
 
 /usr/lib/x86_64-linux-gnu/cmake/Qt6DBusTools/Qt6DBusToolsVersionlessTargets.cmake:
 
@@ -3278,15 +3297,13 @@ matcalc_autogen/moc_predefs.h:
 
 /usr/include/c++/13/bits/iterator_concepts.h:
 
-/usr/include/x86_64-linux-gnu/qt6/QtWidgets/QWidget:
+/usr/include/c++/13/cerrno:
 
-/usr/include/c++/13/bits/stl_tree.h:
+/usr/include/c++/13/bits/stringfwd.h:
 
 /usr/include/x86_64-linux-gnu/qt6/QtCore/qscopedpointer.h:
 
 /usr/include/c++/13/bits/basic_ios.tcc:
-
-/home/xiam/projects/matcalc/src/main.cpp:
 
 /usr/include/c++/13/ext/type_traits.h:
 
@@ -3296,9 +3313,13 @@ matcalc_autogen/moc_predefs.h:
 
 /usr/share/cmake-3.28/Modules/CMakeFindDependencyMacro.cmake:
 
-/usr/include/c++/13/bits/hash_bytes.h:
+/usr/include/x86_64-linux-gnu/qt6/QtCore/qcontiguouscache.h:
 
-/usr/include/c++/13/array:
+/usr/include/c++/13/bits/functional_hash.h:
+
+/usr/include/c++/13/bits/hashtable_policy.h:
+
+/home/xiam/projects/matcalc/src/matrix/matrix_ops.h:
 
 /usr/include/x86_64-linux-gnu/bits/setjmp.h:
 
@@ -3308,19 +3329,13 @@ matcalc_autogen/moc_predefs.h:
 
 /usr/include/locale.h:
 
-/usr/include/x86_64-linux-gnu/bits/types/__FILE.h:
-
 /usr/include/x86_64-linux-gnu/qt6/QtCore/qdebug.h:
 
-CMakeFiles/3.28.3/CMakeSystem.cmake:
+/usr/include/c++/13/bits/hash_bytes.h:
 
-/usr/include/c++/13/iterator:
+/usr/include/c++/13/array:
 
-/home/xiam/projects/matcalc/src/ui/matrix_dialog.h:
-
-/usr/lib/x86_64-linux-gnu/cmake/Qt6Gui/Qt6GuiVersionlessTargets.cmake:
-
-/usr/include/c++/13/cctype:
+/home/xiam/projects/matcalc/src/main.cpp:
 
 /usr/include/c++/13/bits/c++0x_warning.h:
 
@@ -3336,6 +3351,8 @@ CMakeFiles/3.28.3/CMakeSystem.cmake:
 
 /usr/include/x86_64-linux-gnu/qt6/QtCore/qcontainerfwd.h:
 
+/usr/include/x86_64-linux-gnu/bits/timesize.h:
+
 /usr/include/c++/13/cwctype:
 
 /usr/lib/x86_64-linux-gnu/cmake/Qt6Core/Qt6CoreConfigVersion.cmake:
@@ -3344,11 +3361,31 @@ CMakeFiles/3.28.3/CMakeSystem.cmake:
 
 /usr/include/assert.h:
 
-/usr/include/c++/13/stdexcept:
+CMakeFiles/3.28.3/CMakeSystem.cmake:
 
-/usr/include/c++/13/clocale:
+/usr/include/x86_64-linux-gnu/bits/getopt_posix.h:
 
-/usr/include/x86_64-linux-gnu/sys/syscall.h:
+/usr/include/c++/13/bits/stl_map.h:
+
+/usr/include/c++/13/bits/stl_uninitialized.h:
+
+/usr/include/c++/13/bits/new_allocator.h:
+
+/usr/include/x86_64-linux-gnu/qt6/QtGui/qtguiexports.h:
+
+/usr/include/x86_64-linux-gnu/bits/libc-header-start.h:
+
+/usr/lib/x86_64-linux-gnu/cmake/Qt6DBusTools/Qt6DBusToolsAdditionalTargetInfo.cmake:
+
+/usr/include/c++/13/bits/functexcept.h:
+
+/usr/include/x86_64-linux-gnu/qt6/QtWidgets/qdialog.h:
+
+/usr/include/x86_64-linux-gnu/gnu/stubs-64.h:
+
+/usr/include/c++/13/bits/alloc_traits.h:
+
+/usr/include/x86_64-linux-gnu/bits/long-double.h:
 
 /home/xiam/projects/matcalc/CMakeLists.txt:
 
@@ -3382,6 +3419,8 @@ CMakeFiles/3.28.3/CMakeSystem.cmake:
 
 /usr/include/c++/13/optional:
 
+/home/xiam/projects/matcalc/src/matrix/matrix_ops.cpp:
+
 /usr/include/c++/13/bits/vector.tcc:
 
 /usr/include/c++/13/bits/stl_multimap.h:
@@ -3398,6 +3437,18 @@ CMakeFiles/3.28.3/CMakeSystem.cmake:
 
 /usr/lib/x86_64-linux-gnu/cmake/Qt6/QtPublicFindPackageHelpers.cmake:
 
+/usr/include/c++/13/bits/shared_ptr_atomic.h:
+
+/usr/include/x86_64-linux-gnu/qt6/QtCore/qvarlengtharray.h:
+
+/usr/include/c++/13/debug/debug.h:
+
+/usr/include/c++/13/bits/stl_list.h:
+
+/usr/include/x86_64-linux-gnu/qt6/QtCore/qglobalstatic.h:
+
+/usr/include/c++/13/bits/ranges_cmp.h:
+
 /usr/include/c++/13/bits/stl_iterator_base_funcs.h:
 
 /usr/include/c++/13/bits/ranges_util.h:
@@ -3405,20 +3456,6 @@ CMakeFiles/3.28.3/CMakeSystem.cmake:
 /usr/include/x86_64-linux-gnu/c++/13/bits/ctype_base.h:
 
 /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qtwidgetsexports.h:
-
-/usr/include/x86_64-linux-gnu/bits/libc-header-start.h:
-
-/usr/lib/x86_64-linux-gnu/cmake/Qt6DBusTools/Qt6DBusToolsAdditionalTargetInfo.cmake:
-
-/usr/include/c++/13/bits/functexcept.h:
-
-/usr/include/x86_64-linux-gnu/qt6/QtWidgets/qdialog.h:
-
-/usr/include/x86_64-linux-gnu/gnu/stubs-64.h:
-
-/usr/include/c++/13/bits/alloc_traits.h:
-
-/usr/include/x86_64-linux-gnu/bits/long-double.h:
 
 /usr/include/c++/13/bits/exception_ptr.h:
 
@@ -3429,6 +3466,10 @@ CMakeFiles/3.28.3/CMakeSystem.cmake:
 /usr/include/x86_64-linux-gnu/bits/stdlib-float.h:
 
 /usr/include/c++/13/bits/exception.h:
+
+/usr/lib/x86_64-linux-gnu/cmake/Qt6CoreTools/Qt6CoreToolsConfigVersionImpl.cmake:
+
+/usr/include/x86_64-linux-gnu/qt6/QtCore/qmetacontainer.h:
 
 /usr/include/c++/13/algorithm:
 
@@ -3450,7 +3491,11 @@ CMakeFiles/3.28.3/CMakeSystem.cmake:
 
 /usr/include/x86_64-linux-gnu/qt6/QtGui/qwindowdefs.h:
 
-/usr/include/c++/13/bits/ranges_cmp.h:
+/usr/include/c++/13/stdexcept:
+
+/usr/include/c++/13/clocale:
+
+/usr/include/x86_64-linux-gnu/sys/syscall.h:
 
 /usr/include/c++/13/bits/locale_facets.h:
 
@@ -3463,18 +3508,6 @@ CMakeFiles/3.28.3/CMakeSystem.cmake:
 /usr/include/c++/13/bits/max_size_type.h:
 
 /usr/include/c++/13/debug/assertions.h:
-
-/usr/include/c++/13/debug/debug.h:
-
-/usr/include/c++/13/bits/stl_list.h:
-
-/usr/include/x86_64-linux-gnu/qt6/QtCore/qglobalstatic.h:
-
-/usr/include/x86_64-linux-gnu/bits/stdint-least.h:
-
-/usr/include/c++/13/bits/stringfwd.h:
-
-/usr/include/c++/13/cerrno:
 
 /usr/include/c++/13/bits/memoryfwd.h:
 
@@ -3501,12 +3534,6 @@ CMakeFiles/3.28.3/CMakeSystem.cmake:
 /usr/include/c++/13/bits/atomic_base.h:
 
 /usr/include/c++/13/bits/uses_allocator_args.h:
-
-/usr/include/c++/13/bits/new_allocator.h:
-
-/usr/include/c++/13/bits/stl_uninitialized.h:
-
-/usr/include/x86_64-linux-gnu/qt6/QtGui/qtguiexports.h:
 
 /usr/include/x86_64-linux-gnu/qt6/QtCore/qurl.h:
 
@@ -3564,10 +3591,6 @@ CMakeFiles/3.28.3/CMakeCXXCompiler.cmake:
 
 /usr/include/c++/13/bits/shared_ptr.h:
 
-/usr/include/c++/13/bits/shared_ptr_atomic.h:
-
-/usr/include/x86_64-linux-gnu/qt6/QtCore/qvarlengtharray.h:
-
 /usr/share/cmake-3.28/Modules/Platform/Linux-GNU-CXX.cmake:
 
 /usr/include/limits.h:
@@ -3604,10 +3627,6 @@ CMakeFiles/3.28.3/CMakeCXXCompiler.cmake:
 
 /usr/include/syscall.h:
 
-/usr/include/x86_64-linux-gnu/bits/getopt_posix.h:
-
-/usr/include/c++/13/bits/stl_map.h:
-
 /usr/include/c++/13/bits/stl_numeric.h:
 
 /usr/include/c++/13/bits/stl_relops.h:
@@ -3632,11 +3651,9 @@ CMakeFiles/3.28.3/CMakeCXXCompiler.cmake:
 
 /usr/include/x86_64-linux-gnu/bits/types/mbstate_t.h:
 
-/usr/include/c++/13/tr1/gamma.tcc:
+/usr/include/x86_64-linux-gnu/bits/types/__FILE.h:
 
-/usr/include/c++/13/ext/atomicity.h:
-
-/usr/include/x86_64-linux-gnu/bits/types/struct_tm.h:
+/usr/include/x86_64-linux-gnu/bits/types/__fpos64_t.h:
 
 /usr/include/c++/13/bits/basic_string.tcc:
 
@@ -3733,6 +3750,10 @@ CMakeFiles/3.28.3/CMakeCXXCompiler.cmake:
 /usr/include/x86_64-linux-gnu/bits/wchar.h:
 
 /usr/include/x86_64-linux-gnu/c++/13/bits/c++config.h:
+
+/usr/include/c++/13/bits/stl_tree.h:
+
+/usr/include/x86_64-linux-gnu/qt6/QtWidgets/QWidget:
 
 /usr/include/c++/13/bits/ostream.tcc:
 
@@ -4048,10 +4069,6 @@ CMakeFiles/3.28.3/CMakeCXXCompiler.cmake:
 
 /usr/lib/x86_64-linux-gnu/cmake/Qt6CoreTools/Qt6CoreToolsConfigVersion.cmake:
 
-/usr/include/x86_64-linux-gnu/qt6/QtCore/qmetacontainer.h:
-
-/usr/lib/x86_64-linux-gnu/cmake/Qt6CoreTools/Qt6CoreToolsConfigVersionImpl.cmake:
-
 /usr/lib/x86_64-linux-gnu/cmake/Qt6CoreTools/Qt6CoreToolsTargets.cmake:
 
 /usr/lib/x86_64-linux-gnu/cmake/Qt6DBus/Qt6DBusConfig.cmake:
@@ -4059,8 +4076,6 @@ CMakeFiles/3.28.3/CMakeCXXCompiler.cmake:
 /usr/lib/x86_64-linux-gnu/cmake/Qt6DBus/Qt6DBusConfigVersionImpl.cmake:
 
 /usr/lib/x86_64-linux-gnu/cmake/Qt6DBus/Qt6DBusDependencies.cmake:
-
-/usr/share/cmake-3.28/Modules/FindVulkan.cmake:
 
 /usr/include/x86_64-linux-gnu/qt6/QtCore/qsharedpointer.h:
 
@@ -4155,5 +4170,3 @@ CMakeFiles/3.28.3/CMakeCXXCompiler.cmake:
 /usr/share/cmake-3.28/Modules/FindPackageMessage.cmake:
 
 /usr/share/cmake-3.28/Modules/FindThreads.cmake:
-
-/usr/share/cmake-3.28/Modules/GNUInstallDirs.cmake:
