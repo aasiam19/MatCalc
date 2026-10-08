@@ -1,6 +1,6 @@
 #include "main_window.h"
 #include "ui_helpers.h"
-
+#include "matrix_dialog.h"
 #include <QVBoxLayout>
 #include <QHBoxLayout>
 #include <QSpinBox>
@@ -50,6 +50,17 @@ MainWindow::MainWindow()
 
     mainLayout->addLayout(sizeLayout);
 
-    QPushButton *okButton = makeButton("OK");
-    mainLayout->addWidget(okButton);
+   QPushButton *okButton = makeButton("OK");
+mainLayout->addWidget(okButton);
+
+QObject::connect(okButton, &QPushButton::clicked, this, [=]()
+{
+    MatrixDialog dialog(
+        matrixBox->currentText(),
+        rowsBox->value(),
+        columnsBox->value()
+    );
+
+    dialog.exec();
+});
 }
