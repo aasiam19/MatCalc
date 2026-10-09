@@ -37,6 +37,10 @@ private:
 
     // Refreshes the matrix drop-down boxes from what is in the store.
     void updateMatrixChoices();
+
+    // Offers to save a calculation result as a new named matrix.
+    void saveResult(const Matrix &result);
+
     // Returns the name of the matrix selected in the list.
     // If nothing is selected, shows a message and returns an empty string.
     QString selectedMatrixName();

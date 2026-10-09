@@ -1822,6 +1822,7 @@ CMakeFiles/matcalc.dir/src/matrix/matrix_store.cpp.o: /home/xiam/projects/matcal
 
 CMakeFiles/matcalc.dir/src/ui/main_window.cpp.o: /home/xiam/projects/matcalc/src/ui/main_window.cpp \
   /home/xiam/projects/matcalc/src/matrix/matrix.h \
+  /home/xiam/projects/matcalc/src/matrix/matrix_ops.h \
   /home/xiam/projects/matcalc/src/matrix/matrix_store.h \
   /home/xiam/projects/matcalc/src/ui/main_window.h \
   /home/xiam/projects/matcalc/src/ui/matrix_dialog.h \

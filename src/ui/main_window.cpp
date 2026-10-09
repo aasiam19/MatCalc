@@ -1,3 +1,6 @@
+#include <QInputDialog>
+#include "matrix/matrix_ops.h"
+#include <exception>
 #include <QComboBox>
 #include "ui/main_window.h"
 #include "ui/matrix_dialog.h"
@@ -102,9 +105,9 @@ void MainWindow::setupUi()
 
     // Row 1: which operation to do.
     operationBox = new QComboBox;
-    operationBox->addItem("Addition");
-    operationBox->addItem("Subtraction");
-    mainLayout->addWidget(operationBox);
+    // The second value is the hidden data: which Operation this entry means.
+    operationBox->addItem("Addition", static_cast<int>(Operation::Addition));
+    operationBox->addItem("Subtraction", static_cast<int>(Operation::Subtraction));    mainLayout->addWidget(operationBox);
 
     // Row 2: [First matrix:] [ box ] [Second matrix:] [ box ]
     auto *pickLayout = new QHBoxLayout;
@@ -252,7 +255,7 @@ void MainWindow::updateMatrixList()
     }
 	// Keep the operation picker's drop-down boxes in sync with the list.
     	updateMatrixChoices();
-	
+
 }
 // Called when the user presses VIEW.
 void MainWindow::onViewClicked()
@@ -287,8 +290,12 @@ QString MainWindow::selectedMatrixName()
     // The plain name is hidden inside the item (see updateMatrixList).
     return item->data(Qt::UserRole).toString();
 }
+
+
+
+
+
 // Called when the user presses CALCULATE.
-// For now it only reports the choices. The real math comes later.
 void MainWindow::onCalculateClicked()
 {
     // No matrices saved yet, so there is nothing to calculate with.
@@ -299,17 +306,47 @@ void MainWindow::onCalculateClicked()
         return;
     }
 
-    // currentText() is the text shown in the box.
-    // currentData() is the plain matrix name we stored with each entry.
-    const QString operation = operationBox->currentText();
-    const QString first = firstMatrixBox->currentData().toString();
-    const QString second = secondMatrixBox->currentData().toString();
+    // Read which matrices the user picked.
+    const QString firstName = firstMatrixBox->currentData().toString();
+    const QString secondName = secondMatrixBox->currentData().toString();
 
-    QMessageBox::information(
-        this, "Matrix Calculator",
-        QString("Operation: %1\nFirst matrix: %2\nSecond matrix: %3\n\n"
-                "(The math is not connected yet.)")
-            .arg(operation, first, second));
+    // Look both up in the store. A pointer is nullptr if it was not found.
+    const Matrix *first = store.find(firstName.toStdString());
+    const Matrix *second = store.find(secondName.toStdString());
+
+    if (!first || !second)
+    {
+        QMessageBox::warning(this, "Matrix Calculator",
+                             "One of the chosen matrices no longer exists.");
+        return;
+    }
+
+    // Read which operation the user picked (stored as hidden data).
+    const auto operation =
+        static_cast<Operation>(operationBox->currentData().toInt());
+
+    // The math can fail (for example, sizes that do not match).
+    // 'try' runs the math. If it throws an error, 'catch' receives it
+    // and we show its message instead of letting the program crash.
+    try
+    {
+        const Matrix result = calculate(operation, *first, *second);
+
+        // Show the result in the table window from Step 8.
+        const QString title = QString("%1: %2, %3")
+                                  .arg(operationBox->currentText(),
+                                       firstName, secondName);
+        MatrixViewDialog dialog(title, result, this);
+        dialog.exec();
+
+        // After the user closes the result window, offer to save it.
+        saveResult(result);
+    }
+    catch (const std::exception &error)
+    {
+        QMessageBox::warning(this, "Matrix Calculator",
+                             QString::fromUtf8(error.what()));
+    }
 }
 
 // Refills the two matrix drop-down boxes from the store.
@@ -340,4 +377,51 @@ void MainWindow::updateMatrixChoices()
     const int secondIndex = secondMatrixBox->findData(secondOld);
     if (secondIndex >= 0)
         secondMatrixBox->setCurrentIndex(secondIndex);
+}
+// Offers to save a result as a new named matrix.
+void MainWindow::saveResult(const Matrix &result)
+{
+    const auto answer = QMessageBox::question(
+        this, "Save result", "Save this result as a new matrix?");
+
+    if (answer != QMessageBox::Yes)
+        return;
+
+    // Keep asking for a name until we get a usable one, or the user cancels.
+    while (true)
+    {
+        // 'ok' becomes false if the user presses Cancel.
+        bool ok = false;
+        const QString name = QInputDialog::getText(
+            this, "Save result", "Name for the new matrix:",
+            QLineEdit::Normal, "Result", &ok).trimmed();
+
+        if (!ok)
+            return;
+
+        // An empty name is not allowed: ask again.
+        if (name.isEmpty())
+        {
+            QMessageBox::warning(this, "Matrix Calculator",
+                                 "Please enter a matrix name.");
+            continue;
+        }
+
+        // The name is already used: ask before replacing that matrix.
+        if (store.contains(name.toStdString()))
+        {
+            const auto replace = QMessageBox::question(
+                this, "Matrix already exists",
+                QString("\"%1\" already exists. Replace it?").arg(name));
+
+            // No: go back and ask for a different name.
+            if (replace != QMessageBox::Yes)
+                continue;
+        }
+
+        // Save the result, refresh the list and the drop-down boxes, and finish.
+        store.put(name.toStdString(), result);
+        updateMatrixList();
+        return;
+    }
 }

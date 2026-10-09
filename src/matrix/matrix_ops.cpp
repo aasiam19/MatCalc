@@ -40,3 +40,20 @@ Matrix subtract(const Matrix &a, const Matrix &b)
 
     return result;
 }
+
+Matrix calculate(Operation operation, const Matrix &a, const Matrix &b)
+{
+    // Nothing is connected yet, so every operation reports an error.
+    // We connect them one at a time in Phase 3.
+    (void)a;
+    (void)b;
+
+    switch (operation)
+    {
+    case Operation::Addition:
+    case Operation::Subtraction:
+        break;
+    }
+
+    throw std::logic_error("This operation is not connected yet.");
+}
