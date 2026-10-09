@@ -15,6 +15,8 @@ matcalc_autogen/timestamp: \
 	/home/xiam/projects/matcalc/src/ui/main_window.h \
 	/home/xiam/projects/matcalc/src/ui/matrix_dialog.cpp \
 	/home/xiam/projects/matcalc/src/ui/matrix_dialog.h \
+	/home/xiam/projects/matcalc/src/ui/matrix_view_dialog.cpp \
+	/home/xiam/projects/matcalc/src/ui/matrix_view_dialog.h \
 	/home/xiam/projects/matcalc/src/ui/ui_helpers.cpp \
 	/home/xiam/projects/matcalc/src/ui/ui_helpers.h \
 	/usr/include/alloca.h \

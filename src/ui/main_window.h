@@ -6,6 +6,7 @@
 
 // We only *mention* these Qt classes here (forward declarations).
 // The full definitions are included in main_window.cpp.
+class QComboBox;
 class QLineEdit;
 class QListWidget;
 class QListWidgetItem;
@@ -29,6 +30,16 @@ private:
     // Runs when the user presses the DELETE button.
     void onDeleteClicked();
 
+    // Runs when the user presses the VIEW button.
+    void onViewClicked();
+    // Runs when the user presses the CALCULATE button.
+    void onCalculateClicked();
+
+    // Refreshes the matrix drop-down boxes from what is in the store.
+    void updateMatrixChoices();
+    // Returns the name of the matrix selected in the list.
+    // If nothing is selected, shows a message and returns an empty string.
+    QString selectedMatrixName();
     // Runs when the user double-clicks a matrix in the list.
     void onMatrixDoubleClicked(QListWidgetItem *item);
 
@@ -40,7 +51,10 @@ private:
     QLineEdit *rowsInput;
     QLineEdit *columnsInput;
     QListWidget *matrixList;
-
+    // The operation picker: which operation, and on which matrices.
+    QComboBox *operationBox;
+    QComboBox *firstMatrixBox;
+    QComboBox *secondMatrixBox;
     // All matrices the user has created. Lives as long as the window.
     MatrixStore store;
 };

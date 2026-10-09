@@ -16,6 +16,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/matcalc.dir/src/ui/main_window.cpp.o.d"
   "CMakeFiles/matcalc.dir/src/ui/matrix_dialog.cpp.o"
   "CMakeFiles/matcalc.dir/src/ui/matrix_dialog.cpp.o.d"
+  "CMakeFiles/matcalc.dir/src/ui/matrix_view_dialog.cpp.o"
+  "CMakeFiles/matcalc.dir/src/ui/matrix_view_dialog.cpp.o.d"
   "CMakeFiles/matcalc.dir/src/ui/ui_helpers.cpp.o"
   "CMakeFiles/matcalc.dir/src/ui/ui_helpers.cpp.o.d"
   "matcalc"

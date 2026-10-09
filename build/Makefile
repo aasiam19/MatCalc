@@ -323,6 +323,30 @@ src/ui/matrix_dialog.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/matcalc.dir/build.make CMakeFiles/matcalc.dir/src/ui/matrix_dialog.cpp.s
 .PHONY : src/ui/matrix_dialog.cpp.s
 
+src/ui/matrix_view_dialog.o: src/ui/matrix_view_dialog.cpp.o
+.PHONY : src/ui/matrix_view_dialog.o
+
+# target to build an object file
+src/ui/matrix_view_dialog.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/matcalc.dir/build.make CMakeFiles/matcalc.dir/src/ui/matrix_view_dialog.cpp.o
+.PHONY : src/ui/matrix_view_dialog.cpp.o
+
+src/ui/matrix_view_dialog.i: src/ui/matrix_view_dialog.cpp.i
+.PHONY : src/ui/matrix_view_dialog.i
+
+# target to preprocess a source file
+src/ui/matrix_view_dialog.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/matcalc.dir/build.make CMakeFiles/matcalc.dir/src/ui/matrix_view_dialog.cpp.i
+.PHONY : src/ui/matrix_view_dialog.cpp.i
+
+src/ui/matrix_view_dialog.s: src/ui/matrix_view_dialog.cpp.s
+.PHONY : src/ui/matrix_view_dialog.s
+
+# target to generate assembly for a file
+src/ui/matrix_view_dialog.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/matcalc.dir/build.make CMakeFiles/matcalc.dir/src/ui/matrix_view_dialog.cpp.s
+.PHONY : src/ui/matrix_view_dialog.cpp.s
+
 src/ui/ui_helpers.o: src/ui/ui_helpers.cpp.o
 .PHONY : src/ui/ui_helpers.o
 
@@ -379,6 +403,9 @@ help:
 	@echo "... src/ui/matrix_dialog.o"
 	@echo "... src/ui/matrix_dialog.i"
 	@echo "... src/ui/matrix_dialog.s"
+	@echo "... src/ui/matrix_view_dialog.o"
+	@echo "... src/ui/matrix_view_dialog.i"
+	@echo "... src/ui/matrix_view_dialog.s"
 	@echo "... src/ui/ui_helpers.o"
 	@echo "... src/ui/ui_helpers.i"
 	@echo "... src/ui/ui_helpers.s"

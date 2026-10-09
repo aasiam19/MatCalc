@@ -1,12 +1,9 @@
-CMakeFiles/matcalc.dir/src/ui/main_window.cpp.o: \
- /home/xiam/projects/matcalc/src/ui/main_window.cpp \
+CMakeFiles/matcalc.dir/src/ui/matrix_view_dialog.cpp.o: \
+ /home/xiam/projects/matcalc/src/ui/matrix_view_dialog.cpp \
  /usr/include/stdc-predef.h \
- /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QComboBox \
- /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qcombobox.h \
- /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qtwidgetsglobal.h \
- /usr/include/x86_64-linux-gnu/qt6/QtGui/qtguiglobal.h \
- /usr/include/x86_64-linux-gnu/qt6/QtCore/qglobal.h \
- /usr/include/c++/13/type_traits \
+ /home/xiam/projects/matcalc/src/ui/matrix_view_dialog.h \
+ /home/xiam/projects/matcalc/src/matrix/matrix.h \
+ /usr/include/c++/13/vector /usr/include/c++/13/bits/requires_hosted.h \
  /usr/include/x86_64-linux-gnu/c++/13/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/13/bits/os_defines.h \
  /usr/include/features.h /usr/include/features-time64.h \
@@ -17,11 +14,51 @@ CMakeFiles/matcalc.dir/src/ui/main_window.cpp.o: \
  /usr/include/x86_64-linux-gnu/gnu/stubs.h \
  /usr/include/x86_64-linux-gnu/gnu/stubs-64.h \
  /usr/include/x86_64-linux-gnu/c++/13/bits/cpu_defines.h \
- /usr/include/c++/13/pstl/pstl_config.h /usr/include/c++/13/cstddef \
+ /usr/include/c++/13/pstl/pstl_config.h \
+ /usr/include/c++/13/bits/stl_algobase.h \
+ /usr/include/c++/13/bits/functexcept.h \
+ /usr/include/c++/13/bits/exception_defines.h \
+ /usr/include/c++/13/bits/cpp_type_traits.h \
+ /usr/include/c++/13/ext/type_traits.h \
+ /usr/include/c++/13/ext/numeric_traits.h \
+ /usr/include/c++/13/bits/stl_pair.h /usr/include/c++/13/type_traits \
+ /usr/include/c++/13/bits/move.h /usr/include/c++/13/bits/utility.h \
+ /usr/include/c++/13/bits/stl_iterator_base_types.h \
+ /usr/include/c++/13/bits/stl_iterator_base_funcs.h \
+ /usr/include/c++/13/bits/concept_check.h \
+ /usr/include/c++/13/debug/assertions.h \
+ /usr/include/c++/13/bits/stl_iterator.h \
+ /usr/include/c++/13/bits/ptr_traits.h /usr/include/c++/13/debug/debug.h \
+ /usr/include/c++/13/bits/predefined_ops.h /usr/include/c++/13/bit \
+ /usr/include/c++/13/bits/allocator.h \
+ /usr/include/x86_64-linux-gnu/c++/13/bits/c++allocator.h \
+ /usr/include/c++/13/bits/new_allocator.h /usr/include/c++/13/new \
+ /usr/include/c++/13/bits/exception.h \
+ /usr/include/c++/13/bits/memoryfwd.h \
+ /usr/include/c++/13/bits/stl_construct.h \
+ /usr/include/c++/13/bits/stl_uninitialized.h \
+ /usr/include/c++/13/ext/alloc_traits.h \
+ /usr/include/c++/13/bits/alloc_traits.h \
+ /usr/include/c++/13/bits/stl_vector.h \
+ /usr/include/c++/13/initializer_list \
+ /usr/include/c++/13/bits/stl_bvector.h \
+ /usr/include/c++/13/bits/functional_hash.h \
+ /usr/include/c++/13/bits/hash_bytes.h /usr/include/c++/13/bits/refwrap.h \
+ /usr/include/c++/13/bits/invoke.h \
+ /usr/include/c++/13/bits/stl_function.h \
+ /usr/include/c++/13/backward/binders.h \
+ /usr/include/c++/13/bits/range_access.h \
+ /usr/include/c++/13/bits/vector.tcc \
+ /usr/include/c++/13/bits/memory_resource.h /usr/include/c++/13/cstddef \
  /usr/lib/gcc/x86_64-linux-gnu/13/include/stddef.h \
+ /usr/include/c++/13/bits/uses_allocator.h \
+ /usr/include/c++/13/bits/uses_allocator_args.h /usr/include/c++/13/tuple \
+ /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QDialog \
+ /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qdialog.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qtwidgetsglobal.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtGui/qtguiglobal.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/qglobal.h \
  /usr/include/c++/13/utility /usr/include/c++/13/bits/stl_relops.h \
- /usr/include/c++/13/bits/stl_pair.h /usr/include/c++/13/bits/move.h \
- /usr/include/c++/13/bits/utility.h /usr/include/c++/13/initializer_list \
  /usr/include/c++/13/cstdint \
  /usr/lib/gcc/x86_64-linux-gnu/13/include/stdint.h /usr/include/stdint.h \
  /usr/include/x86_64-linux-gnu/bits/libc-header-start.h \
@@ -45,24 +82,11 @@ CMakeFiles/matcalc.dir/src/ui/main_window.cpp.o: \
  /usr/include/x86_64-linux-gnu/qt6/QtCore/qcontainerfwd.h \
  /usr/include/c++/13/variant \
  /usr/include/c++/13/bits/enable_special_members.h \
- /usr/include/c++/13/bits/exception_defines.h \
- /usr/include/c++/13/bits/functional_hash.h \
- /usr/include/c++/13/bits/hash_bytes.h /usr/include/c++/13/bits/invoke.h \
  /usr/include/c++/13/bits/parse_numbers.h \
- /usr/include/c++/13/ext/numeric_traits.h \
- /usr/include/c++/13/bits/cpp_type_traits.h \
- /usr/include/c++/13/ext/type_traits.h \
- /usr/include/c++/13/bits/stl_iterator_base_funcs.h \
- /usr/include/c++/13/bits/concept_check.h \
- /usr/include/c++/13/debug/assertions.h \
- /usr/include/c++/13/bits/stl_iterator_base_types.h \
- /usr/include/c++/13/bits/stl_construct.h /usr/include/c++/13/new \
- /usr/include/c++/13/bits/exception.h \
  /usr/include/c++/13/ext/aligned_buffer.h /usr/include/c++/13/optional \
  /usr/include/c++/13/exception /usr/include/c++/13/bits/exception_ptr.h \
  /usr/include/c++/13/bits/cxxabi_init_exception.h \
  /usr/include/c++/13/typeinfo /usr/include/c++/13/bits/nested_exception.h \
- /usr/include/c++/13/tuple /usr/include/c++/13/bits/uses_allocator.h \
  /usr/include/x86_64-linux-gnu/qt6/QtCore/qsysinfo.h \
  /usr/include/x86_64-linux-gnu/qt6/QtCore/qlogging.h \
  /usr/include/x86_64-linux-gnu/qt6/QtCore/qflags.h \
@@ -75,8 +99,8 @@ CMakeFiles/matcalc.dir/src/ui/main_window.cpp.o: \
  /usr/include/c++/13/bits/atomic_lockfree_defines.h \
  /usr/include/x86_64-linux-gnu/qt6/QtCore/qglobalstatic.h \
  /usr/include/x86_64-linux-gnu/qt6/QtCore/qnumeric.h \
- /usr/include/c++/13/cmath /usr/include/c++/13/bits/requires_hosted.h \
- /usr/include/math.h /usr/include/x86_64-linux-gnu/bits/math-vector.h \
+ /usr/include/c++/13/cmath /usr/include/math.h \
+ /usr/include/x86_64-linux-gnu/bits/math-vector.h \
  /usr/include/x86_64-linux-gnu/bits/libm-simd-decl-stubs.h \
  /usr/include/x86_64-linux-gnu/bits/floatn.h \
  /usr/include/x86_64-linux-gnu/bits/floatn-common.h \
@@ -114,13 +138,8 @@ CMakeFiles/matcalc.dir/src/ui/main_window.cpp.o: \
  /usr/include/x86_64-linux-gnu/bits/struct_mutex.h \
  /usr/include/x86_64-linux-gnu/bits/struct_rwlock.h /usr/include/alloca.h \
  /usr/include/x86_64-linux-gnu/bits/stdlib-float.h \
- /usr/include/c++/13/bits/specfun.h \
- /usr/include/c++/13/bits/stl_algobase.h \
- /usr/include/c++/13/bits/functexcept.h \
- /usr/include/c++/13/bits/stl_iterator.h \
- /usr/include/c++/13/bits/ptr_traits.h /usr/include/c++/13/debug/debug.h \
- /usr/include/c++/13/bits/predefined_ops.h /usr/include/c++/13/bit \
- /usr/include/c++/13/limits /usr/include/c++/13/tr1/gamma.tcc \
+ /usr/include/c++/13/bits/specfun.h /usr/include/c++/13/limits \
+ /usr/include/c++/13/tr1/gamma.tcc \
  /usr/include/c++/13/tr1/special_function_util.h \
  /usr/include/c++/13/tr1/bessel_function.tcc \
  /usr/include/c++/13/tr1/beta_function.tcc \
@@ -147,29 +166,13 @@ CMakeFiles/matcalc.dir/src/ui/main_window.cpp.o: \
  /usr/include/x86_64-linux-gnu/qt6/QtCore/qobject.h \
  /usr/include/x86_64-linux-gnu/qt6/QtCore/qstring.h \
  /usr/include/x86_64-linux-gnu/qt6/QtCore/qchar.h \
- /usr/include/c++/13/functional /usr/include/c++/13/bits/stl_function.h \
- /usr/include/c++/13/backward/binders.h \
- /usr/include/c++/13/bits/refwrap.h \
- /usr/include/c++/13/bits/std_function.h \
+ /usr/include/c++/13/functional /usr/include/c++/13/bits/std_function.h \
  /usr/include/c++/13/unordered_map \
  /usr/include/c++/13/bits/unordered_map.h \
  /usr/include/c++/13/bits/hashtable.h \
  /usr/include/c++/13/bits/hashtable_policy.h \
- /usr/include/c++/13/ext/alloc_traits.h \
- /usr/include/c++/13/bits/alloc_traits.h \
- /usr/include/c++/13/bits/memoryfwd.h \
- /usr/include/c++/13/bits/allocator.h \
- /usr/include/x86_64-linux-gnu/c++/13/bits/c++allocator.h \
- /usr/include/c++/13/bits/new_allocator.h \
  /usr/include/c++/13/bits/node_handle.h \
- /usr/include/c++/13/bits/range_access.h \
- /usr/include/c++/13/bits/erase_if.h \
- /usr/include/c++/13/bits/memory_resource.h \
- /usr/include/c++/13/bits/uses_allocator_args.h \
- /usr/include/c++/13/vector /usr/include/c++/13/bits/stl_uninitialized.h \
- /usr/include/c++/13/bits/stl_vector.h \
- /usr/include/c++/13/bits/stl_bvector.h \
- /usr/include/c++/13/bits/vector.tcc /usr/include/c++/13/array \
+ /usr/include/c++/13/bits/erase_if.h /usr/include/c++/13/array \
  /usr/include/c++/13/compare /usr/include/c++/13/bits/stl_algo.h \
  /usr/include/c++/13/bits/algorithmfwd.h \
  /usr/include/c++/13/bits/stl_heap.h \
@@ -335,6 +338,16 @@ CMakeFiles/matcalc.dir/src/ui/main_window.cpp.o: \
  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qsizepolicy.h \
  /usr/include/x86_64-linux-gnu/qt6/QtGui/qcursor.h \
  /usr/include/x86_64-linux-gnu/qt6/QtGui/qbitmap.h \
+ /home/xiam/projects/matcalc/src/ui/ui_helpers.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/QString \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/qstring.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QHeaderView \
+ /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qheaderview.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qabstractitemview.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qabstractscrollarea.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qframe.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/qabstractitemmodel.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/qitemselectionmodel.h \
  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qabstractitemdelegate.h \
  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qstyleoption.h \
  /usr/include/x86_64-linux-gnu/qt6/QtCore/qlocale.h \
@@ -347,50 +360,15 @@ CMakeFiles/matcalc.dir/src/ui/main_window.cpp.o: \
  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qtabbar.h \
  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qtabwidget.h \
  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qrubberband.h \
- /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qframe.h \
- /usr/include/x86_64-linux-gnu/qt6/QtCore/qabstractitemmodel.h \
- /home/xiam/projects/matcalc/src/ui/main_window.h \
- /home/xiam/projects/matcalc/src/matrix/matrix_store.h \
- /home/xiam/projects/matcalc/src/matrix/matrix.h \
- /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QWidget \
- /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qwidget.h \
- /home/xiam/projects/matcalc/src/ui/matrix_dialog.h \
- /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QDialog \
- /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qdialog.h \
- /home/xiam/projects/matcalc/src/ui/matrix_view_dialog.h \
- /home/xiam/projects/matcalc/src/ui/ui_helpers.h \
- /usr/include/x86_64-linux-gnu/qt6/QtCore/QString \
- /usr/include/x86_64-linux-gnu/qt6/QtCore/qstring.h \
- /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QHBoxLayout \
+ /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QPushButton \
+ /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qpushbutton.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qabstractbutton.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QTableWidget \
+ /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qtablewidget.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qtableview.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QVBoxLayout \
  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qboxlayout.h \
  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qlayout.h \
  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qlayoutitem.h \
  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qboxlayout.h \
- /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qgridlayout.h \
- /usr/include/x86_64-linux-gnu/qt6/QtGui/QIntValidator \
- /usr/include/x86_64-linux-gnu/qt6/QtGui/qvalidator.h \
- /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QLabel \
- /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qlabel.h \
- /usr/include/x86_64-linux-gnu/qt6/QtGui/qpicture.h \
- /usr/include/x86_64-linux-gnu/qt6/QtCore/qiodevice.h \
- /usr/include/x86_64-linux-gnu/qt6/QtGui/qtextdocument.h \
- /usr/include/x86_64-linux-gnu/qt6/QtCore/qurl.h \
- /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QLineEdit \
- /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qlineedit.h \
- /usr/include/x86_64-linux-gnu/qt6/QtGui/qtextcursor.h \
- /usr/include/x86_64-linux-gnu/qt6/QtGui/qtextformat.h \
- /usr/include/x86_64-linux-gnu/qt6/QtGui/qpen.h \
- /usr/include/x86_64-linux-gnu/qt6/QtGui/qtextoption.h \
- /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QListWidget \
- /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qlistwidget.h \
- /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qlistview.h \
- /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qabstractitemview.h \
- /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qabstractscrollarea.h \
- /usr/include/x86_64-linux-gnu/qt6/QtCore/qitemselectionmodel.h \
- /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QMessageBox \
- /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qmessagebox.h \
- /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qdialog.h \
- /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QPushButton \
- /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qpushbutton.h \
- /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qabstractbutton.h \
- /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QVBoxLayout
+ /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qgridlayout.h

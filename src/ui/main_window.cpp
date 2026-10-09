@@ -1,7 +1,8 @@
+#include <QComboBox>
 #include "ui/main_window.h"
 #include "ui/matrix_dialog.h"
+#include "ui/matrix_view_dialog.h"
 #include "ui/ui_helpers.h"
-
 #include <QHBoxLayout>
 #include <QIntValidator>
 #include <QLabel>
@@ -91,7 +92,36 @@ void MainWindow::setupUi()
     mainLayout->addWidget(deleteButton);
 
     connect(deleteButton, &QPushButton::clicked, this, &MainWindow::onDeleteClicked);
+    // ---- VIEW button: shows the selected matrix in a table ----
+    QPushButton *viewButton = makeButton("VIEW");
+    mainLayout->addWidget(viewButton);
 
+    connect(viewButton, &QPushButton::clicked, this, &MainWindow::onViewClicked);
+    // ---- Operation picker ----
+    mainLayout->addWidget(makeLabel("Operation:"));
+
+    // Row 1: which operation to do.
+    operationBox = new QComboBox;
+    operationBox->addItem("Addition");
+    operationBox->addItem("Subtraction");
+    mainLayout->addWidget(operationBox);
+
+    // Row 2: [First matrix:] [ box ] [Second matrix:] [ box ]
+    auto *pickLayout = new QHBoxLayout;
+    firstMatrixBox = new QComboBox;
+    secondMatrixBox = new QComboBox;
+    pickLayout->addWidget(makeLabel("First matrix:"));
+    pickLayout->addWidget(firstMatrixBox);
+    pickLayout->addWidget(makeLabel("Second matrix:"));
+    pickLayout->addWidget(secondMatrixBox);
+    mainLayout->addLayout(pickLayout);
+
+    // CALCULATE button: runs the chosen operation.
+    QPushButton *calculateButton = makeButton("CALCULATE");
+    mainLayout->addWidget(calculateButton);
+
+    connect(calculateButton, &QPushButton::clicked,
+            this, &MainWindow::onCalculateClicked);
     // Fill the list for the first time (it is empty at start).
     updateMatrixList();
 }
@@ -170,19 +200,10 @@ void MainWindow::onOpenClicked()
 // Called when the user presses DELETE.
 void MainWindow::onDeleteClicked()
 {
-    // Find which matrix is selected in the list.
-    QListWidgetItem *item = matrixList->currentItem();
-
-    // Nothing selected: tell the user and stop.
-    if (!item)
-    {
-        QMessageBox::information(this, "Matrix Calculator",
-                                 "Select a matrix in the list first.");
+    // Which matrix is selected? (empty if none)
+    const QString name = selectedMatrixName();
+    if (name.isEmpty())
         return;
-    }
-
-    // The real matrix name is hidden inside the item (see updateMatrixList).
-    const QString name = item->data(Qt::UserRole).toString();
 
     // Ask before deleting, because it cannot be undone.
     const auto answer = QMessageBox::question(
@@ -229,4 +250,94 @@ void MainWindow::updateMatrixList()
 
         matrixList->addItem(item);
     }
+	// Keep the operation picker's drop-down boxes in sync with the list.
+    	updateMatrixChoices();
+	
+}
+// Called when the user presses VIEW.
+void MainWindow::onViewClicked()
+{
+    const QString name = selectedMatrixName();
+    if (name.isEmpty())
+        return;
+
+    // Look the matrix up in the store.
+    const Matrix *matrix = store.find(name.toStdString());
+    if (!matrix)
+        return;
+
+    // Show it in a read-only table window.
+    MatrixViewDialog dialog(name, *matrix, this);
+    dialog.exec();
+}
+
+// Returns the name of the selected matrix in the list.
+// If nothing is selected, tells the user and returns an empty string.
+QString MainWindow::selectedMatrixName()
+{
+    QListWidgetItem *item = matrixList->currentItem();
+
+    if (!item)
+    {
+        QMessageBox::information(this, "Matrix Calculator",
+                                 "Select a matrix in the list first.");
+        return QString();
+    }
+
+    // The plain name is hidden inside the item (see updateMatrixList).
+    return item->data(Qt::UserRole).toString();
+}
+// Called when the user presses CALCULATE.
+// For now it only reports the choices. The real math comes later.
+void MainWindow::onCalculateClicked()
+{
+    // No matrices saved yet, so there is nothing to calculate with.
+    if (firstMatrixBox->count() == 0)
+    {
+        QMessageBox::information(this, "Matrix Calculator",
+                                 "Create at least one matrix first.");
+        return;
+    }
+
+    // currentText() is the text shown in the box.
+    // currentData() is the plain matrix name we stored with each entry.
+    const QString operation = operationBox->currentText();
+    const QString first = firstMatrixBox->currentData().toString();
+    const QString second = secondMatrixBox->currentData().toString();
+
+    QMessageBox::information(
+        this, "Matrix Calculator",
+        QString("Operation: %1\nFirst matrix: %2\nSecond matrix: %3\n\n"
+                "(The math is not connected yet.)")
+            .arg(operation, first, second));
+}
+
+// Refills the two matrix drop-down boxes from the store.
+void MainWindow::updateMatrixChoices()
+{
+    // Remember what the user had selected, so we can select it again.
+    const QString firstOld = firstMatrixBox->currentData().toString();
+    const QString secondOld = secondMatrixBox->currentData().toString();
+
+    firstMatrixBox->clear();
+    secondMatrixBox->clear();
+
+    // Add every stored matrix to both boxes.
+    // The first QString is the shown text, the second is the hidden data.
+    for (const std::string &n : store.names())
+    {
+        const QString name = QString::fromStdString(n);
+        firstMatrixBox->addItem(name, name);
+        secondMatrixBox->addItem(name, name);
+    }
+
+    // Restore the old selection if that matrix still exists.
+    // findData() returns -1 when it is not found.
+    const int firstIndex = firstMatrixBox->findData(firstOld);
+    if (firstIndex >= 0)
+        firstMatrixBox->setCurrentIndex(firstIndex);
+
+    const int secondIndex = secondMatrixBox->findData(secondOld);
+    if (secondIndex >= 0)
+        secondMatrixBox->setCurrentIndex(secondIndex);
 }
