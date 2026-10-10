@@ -1,6 +1,12 @@
 #include "matrix/matrix_ops.h"
-#include <string>
+
+#include <algorithm>
+#include <cmath>
 #include <stdexcept>
+#include <string>
+#include <utility>
+#include <vector>
+
 
 namespace
 {
@@ -108,6 +114,79 @@ Matrix multiply(const Matrix &a, const Matrix &b)
     return result;
 }
 
+double determinant(const Matrix &a)
+{
+    // Only square matrices have a determinant.
+    if (a.rows() != a.columns())
+    {
+        throw std::invalid_argument(
+            "The determinant needs a square matrix (same number of rows and "
+            "columns).\nThis matrix is " + std::to_string(a.rows()) + " x "
+            + std::to_string(a.columns()) + ".");
+    }
+
+    const int n = a.rows();
+
+    // Work on a plain copy, so the original matrix is never changed.
+    std::vector<std::vector<double>> m(n, std::vector<double>(n));
+    double biggest = 0.0;
+    for (int i = 0; i < n; i++)
+    {
+        for (int j = 0; j < n; j++)
+        {
+            m[i][j] = a.get(i, j);
+            biggest = std::max(biggest, std::fabs(m[i][j]));
+        }
+    }
+
+    // A matrix of only zeros has determinant 0.
+    if (biggest == 0.0)
+        return 0.0;
+
+    // A number this small (compared to the biggest number in the matrix)
+    // is treated as zero. This hides tiny rounding errors, so a singular
+    // matrix gives exactly 0 instead of something like 6.6e-16.
+    const double tolerance = biggest * 1e-12;
+
+    // Gaussian elimination: turn the matrix into a triangle.
+    // The determinant is then the product of the numbers on the diagonal.
+    double det = 1.0;
+
+    for (int col = 0; col < n; col++)
+    {
+        // Pick the row (at or below this one) with the biggest number in
+        // this column. This keeps the calculation accurate.
+        int pivot = col;
+        for (int r = col + 1; r < n; r++)
+            if (std::fabs(m[r][col]) > std::fabs(m[pivot][col]))
+                pivot = r;
+
+        // No usable number in this column: the determinant is 0.
+        if (std::fabs(m[pivot][col]) <= tolerance)
+            return 0.0;
+
+        // Swapping two rows flips the sign of the determinant.
+        if (pivot != col)
+        {
+            std::swap(m[pivot], m[col]);
+            det = -det;
+        }
+
+        det *= m[col][col];
+
+        // Subtract a multiple of this row from the rows below,
+        // so that the column becomes zero below the diagonal.
+        for (int r = col + 1; r < n; r++)
+        {
+            const double factor = m[r][col] / m[col][col];
+            for (int c = col; c < n; c++)
+                m[r][c] -= factor * m[col][c];
+        }
+    }
+
+    return det;
+}
+
 
 Matrix calculate(Operation operation, const Matrix &a, const Matrix &b,
                  double scalar)
@@ -125,6 +204,13 @@ Matrix calculate(Operation operation, const Matrix &a, const Matrix &b,
         return transpose(a);
     case Operation::Multiplication:
         return multiply(a, b);
+    case Operation::Determinant:
+        // The determinant is a single number, not a matrix.
+        // The window calls determinant() directly for this operation.
+        throw std::logic_error(
+            "The determinant is a number, not a matrix. Use determinant().");
+
+
    }
 
     // Only reached if a new Operation is added above but not handled here.

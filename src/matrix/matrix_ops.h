@@ -28,6 +28,12 @@ Matrix transpose(const Matrix &a);
 // A (2 x 3) times a (3 x 4) gives a (2 x 4) result.
 Matrix multiply(const Matrix &a, const Matrix &b);
 
+
+// Returns the determinant of a (a single number).
+// The matrix must be square (same number of rows and columns).
+double determinant(const Matrix &a);
+
+
 // The operations the user can choose in the window.
 enum class Operation
 {
@@ -35,7 +41,9 @@ enum class Operation
     Subtraction,
     ScalarMultiplication,
     Transpose,
-    Multiplication
+    Multiplication,
+    Determinant
+
 };
 
 // Runs the chosen operation and returns the result.

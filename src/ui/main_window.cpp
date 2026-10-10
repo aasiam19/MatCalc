@@ -37,6 +37,13 @@ namespace
         return operation == Operation::ScalarMultiplication;
     }
 
+    // True if the operation gives a single number instead of a matrix.
+    bool producesNumber(Operation operation)
+    {
+        return operation == Operation::Determinant;
+    }
+
+
 }
 
 // The constructor only sets the window up.
@@ -129,7 +136,7 @@ void MainWindow::setupUi()
     operationBox->addItem("Scalar multiplication", static_cast<int>(Operation::ScalarMultiplication));
     operationBox->addItem("Transpose", static_cast<int>(Operation::Transpose));
     operationBox->addItem("Multiplication", static_cast<int>(Operation::Multiplication));
-
+    operationBox->addItem("Determinant", static_cast<int>(Operation::Determinant));
 
 	// Row 2: [First matrix:] [ box ] [Second matrix:] [ box ] [Number:] [ box ]
     // The second matrix and the number never show together:
@@ -397,8 +404,22 @@ void MainWindow::onCalculateClicked()
     // and we show its message instead of letting the program crash.
     try
     {
-        const Matrix result = calculate(operation, *first, *second, scalar);
+        // Operations that give a single number are shown in a message box
+        // instead of the result table (a number cannot be saved as a matrix).
+        if (producesNumber(operation))
+        {
+            const double value = determinant(*first);
 
+            // 'g' with 10 digits shows -2 as "-2" and hides rounding noise.
+            QMessageBox::information(
+                this, "Determinant",
+                QString("Determinant of %1 = %2")
+                    .arg(firstName)
+                    .arg(value, 0, 'g', 10));
+            return;
+        }
+
+        const Matrix result = calculate(operation, *first, *second, scalar);
         // Build the result window title, like: Addition: Mat A, B
         QString title = operationBox->currentText() + ": " + firstName;
         if (!extraText.isEmpty())
