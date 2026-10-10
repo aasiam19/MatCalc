@@ -43,17 +43,17 @@ Matrix subtract(const Matrix &a, const Matrix &b)
 
 Matrix calculate(Operation operation, const Matrix &a, const Matrix &b)
 {
-    // Nothing is connected yet, so every operation reports an error.
-    // We connect them one at a time in Phase 3.
-    (void)a;
-    (void)b;
-
+    // Pick the right math function for the chosen operation.
     switch (operation)
     {
     case Operation::Addition:
+        return add(a, b);
     case Operation::Subtraction:
-        break;
+        return subtract(a, b);
     }
 
-    throw std::logic_error("This operation is not connected yet.");
+    // Only reached if a new Operation is added above but not handled here.
+    throw std::logic_error("Unknown operation.");
 }
+
+
