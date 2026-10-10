@@ -187,6 +187,86 @@ double determinant(const Matrix &a)
     return det;
 }
 
+Matrix rowEchelonForm(const Matrix &a)
+{
+    const int rows = a.rows();
+    const int columns = a.columns();
+
+    // Work on a plain copy, so the original matrix is never changed.
+    std::vector<std::vector<double>> m(rows, std::vector<double>(columns));
+    double biggest = 0.0;
+    for (int i = 0; i < rows; i++)
+    {
+        for (int j = 0; j < columns; j++)
+        {
+            m[i][j] = a.get(i, j);
+            biggest = std::max(biggest, std::fabs(m[i][j]));
+        }
+    }
+
+    // Numbers this small (compared to the biggest number in the matrix)
+    // are treated as zero. This hides tiny rounding errors.
+    const double tolerance = biggest * 1e-12;
+
+    // pivotRow is the row where the next leading 1 will be placed.
+    int pivotRow = 0;
+
+    for (int col = 0; col < columns && pivotRow < rows; col++)
+    {
+        // Find the first row (at or below pivotRow) with a usable number
+        // in this column. Taking the first one matches how it is done by hand.
+        int found = -1;
+        for (int r = pivotRow; r < rows; r++)
+        {
+            if (std::fabs(m[r][col]) > tolerance)
+            {
+                found = r;
+                break;
+            }
+        }
+
+        // This column has nothing usable: move on to the next column.
+        if (found == -1)
+            continue;
+
+        // Move that row up to the pivot position.
+        std::swap(m[found], m[pivotRow]);
+
+        // Divide the row by its first number, so the leading number becomes 1.
+        const double pivot = m[pivotRow][col];
+        for (int c = col; c < columns; c++)
+            m[pivotRow][c] /= pivot;
+        m[pivotRow][col] = 1.0;
+
+        // Subtract a multiple of the pivot row from every row below,
+        // so that the column becomes zero below the leading 1.
+        for (int r = pivotRow + 1; r < rows; r++)
+        {
+            const double factor = m[r][col];
+            for (int c = col; c < columns; c++)
+                m[r][c] -= factor * m[pivotRow][c];
+            m[r][col] = 0.0;
+        }
+
+        pivotRow++;
+    }
+
+    // Build the result. Tiny leftovers (and "-0") are cleaned to a plain 0.
+    Matrix result(rows, columns);
+    for (int i = 0; i < rows; i++)
+    {
+        for (int j = 0; j < columns; j++)
+        {
+            double value = m[i][j];
+            if (std::fabs(value) <= tolerance)
+                value = 0.0;
+            result.set(i, j, value);
+        }
+    }
+
+    return result;
+}
+
 
 Matrix calculate(Operation operation, const Matrix &a, const Matrix &b,
                  double scalar)
@@ -209,7 +289,8 @@ Matrix calculate(Operation operation, const Matrix &a, const Matrix &b,
         // The window calls determinant() directly for this operation.
         throw std::logic_error(
             "The determinant is a number, not a matrix. Use determinant().");
-
+    case Operation::RowEchelonForm:
+        return rowEchelonForm(a);
 
    }
 

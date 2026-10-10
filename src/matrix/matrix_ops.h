@@ -34,6 +34,13 @@ Matrix multiply(const Matrix &a, const Matrix &b);
 double determinant(const Matrix &a);
 
 
+// Returns the row echelon form of a.
+// Every non-zero row starts with a 1, each leading 1 is to the right of the
+// one above it, and rows of only zeros are at the bottom.
+// Works on any size of matrix.
+Matrix rowEchelonForm(const Matrix &a);
+
+
 // The operations the user can choose in the window.
 enum class Operation
 {
@@ -42,7 +49,8 @@ enum class Operation
     ScalarMultiplication,
     Transpose,
     Multiplication,
-    Determinant
+    Determinant,
+    RowEchelonForm
 
 };
 

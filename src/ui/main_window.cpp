@@ -137,7 +137,7 @@ void MainWindow::setupUi()
     operationBox->addItem("Transpose", static_cast<int>(Operation::Transpose));
     operationBox->addItem("Multiplication", static_cast<int>(Operation::Multiplication));
     operationBox->addItem("Determinant", static_cast<int>(Operation::Determinant));
-
+    operationBox->addItem("Row echelon form", static_cast<int>(Operation::RowEchelonForm));
 	// Row 2: [First matrix:] [ box ] [Second matrix:] [ box ] [Number:] [ box ]
     // The second matrix and the number never show together:
     // onOperationChanged() decides which one is visible.
