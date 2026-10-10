@@ -14,12 +14,27 @@
 #include <QMessageBox>
 #include <QPushButton>
 #include <QVBoxLayout>
+#include <QDoubleValidator>
 
 // Settings in one place, so they are easy to change later.
 namespace
 {
     constexpr int kMinSize = 1;    // smallest allowed rows / columns
     constexpr int kMaxSize = 10;   // largest allowed rows / columns
+
+    // True if the operation needs a second matrix (Addition, Subtraction).
+    bool usesSecondMatrix(Operation operation)
+    {
+        return operation == Operation::Addition
+            || operation == Operation::Subtraction;
+    }
+
+    // True if the operation needs a plain number (Scalar multiplication).
+    bool usesNumber(Operation operation)
+    {
+        return operation == Operation::ScalarMultiplication;
+    }
+
 }
 
 // The constructor only sets the window up.
@@ -108,17 +123,37 @@ void MainWindow::setupUi()
     // The second value is the hidden data: which Operation this entry means.
     operationBox->addItem("Addition", static_cast<int>(Operation::Addition));
     operationBox->addItem("Subtraction", static_cast<int>(Operation::Subtraction));    mainLayout->addWidget(operationBox);
+    operationBox->addItem("Scalar multiplication",
+                          static_cast<int>(Operation::ScalarMultiplication));
+    operationBox->addItem("Transpose", static_cast<int>(Operation::Transpose));
 
-    // Row 2: [First matrix:] [ box ] [Second matrix:] [ box ]
+	// Row 2: [First matrix:] [ box ] [Second matrix:] [ box ] [Number:] [ box ]
+    // The second matrix and the number never show together:
+    // onOperationChanged() decides which one is visible.
     auto *pickLayout = new QHBoxLayout;
     firstMatrixBox = new QComboBox;
     secondMatrixBox = new QComboBox;
+    secondMatrixLabel = makeLabel("Second matrix:");
+
+    scalarLabel = makeLabel("Number:");
+    scalarInput = makeInput();
+    scalarInput->setText("2");
+    scalarInput->setFixedWidth(80);
+    scalarInput->setAlignment(Qt::AlignCenter);
+    scalarInput->setValidator(new QDoubleValidator(scalarInput));
+
     pickLayout->addWidget(makeLabel("First matrix:"));
     pickLayout->addWidget(firstMatrixBox);
-    pickLayout->addWidget(makeLabel("Second matrix:"));
+    pickLayout->addWidget(secondMatrixLabel);
     pickLayout->addWidget(secondMatrixBox);
+    pickLayout->addWidget(scalarLabel);
+    pickLayout->addWidget(scalarInput);
     mainLayout->addLayout(pickLayout);
 
+    // Whenever the chosen operation changes, show or hide the right boxes.
+    connect(operationBox, &QComboBox::currentIndexChanged,
+            this, &MainWindow::onOperationChanged);
+    onOperationChanged();   // set the correct boxes for the first operation
     // CALCULATE button: runs the chosen operation.
     QPushButton *calculateButton = makeButton("CALCULATE");
     mainLayout->addWidget(calculateButton);
@@ -291,10 +326,6 @@ QString MainWindow::selectedMatrixName()
     return item->data(Qt::UserRole).toString();
 }
 
-
-
-
-
 // Called when the user presses CALCULATE.
 void MainWindow::onCalculateClicked()
 {
@@ -306,36 +337,69 @@ void MainWindow::onCalculateClicked()
         return;
     }
 
-    // Read which matrices the user picked.
-    const QString firstName = firstMatrixBox->currentData().toString();
-    const QString secondName = secondMatrixBox->currentData().toString();
-
-    // Look both up in the store. A pointer is nullptr if it was not found.
-    const Matrix *first = store.find(firstName.toStdString());
-    const Matrix *second = store.find(secondName.toStdString());
-
-    if (!first || !second)
-    {
-        QMessageBox::warning(this, "Matrix Calculator",
-                             "One of the chosen matrices no longer exists.");
-        return;
-    }
-
     // Read which operation the user picked (stored as hidden data).
     const auto operation =
         static_cast<Operation>(operationBox->currentData().toInt());
+
+    // Look up the first matrix. A pointer is nullptr if it was not found.
+    const QString firstName = firstMatrixBox->currentData().toString();
+    const Matrix *first = store.find(firstName.toStdString());
+
+    if (!first)
+    {
+        QMessageBox::warning(this, "Matrix Calculator",
+                             "The chosen matrix no longer exists.");
+        return;
+    }
+
+    // These depend on the operation.
+    // One-matrix operations ignore 'second', so it defaults to the first matrix.
+    const Matrix *second = first;
+    double scalar = 1.0;
+    QString extraText;   // the second matrix or number, for the window title
+
+    if (usesNumber(operation))
+    {
+        // toDouble() sets 'ok' to false if the text is not a number.
+        bool ok = false;
+        scalar = scalarInput->text().toDouble(&ok);
+
+        if (!ok)
+        {
+            QMessageBox::warning(this, "Matrix Calculator",
+                                 "Please enter a number in the Number box.");
+            return;
+        }
+
+        extraText = scalarInput->text().trimmed();
+    }
+    else if (usesSecondMatrix(operation))
+    {
+        const QString secondName = secondMatrixBox->currentData().toString();
+        second = store.find(secondName.toStdString());
+
+        if (!second)
+        {
+            QMessageBox::warning(this, "Matrix Calculator",
+                                 "The chosen matrix no longer exists.");
+            return;
+        }
+
+        extraText = secondName;
+    }
 
     // The math can fail (for example, sizes that do not match).
     // 'try' runs the math. If it throws an error, 'catch' receives it
     // and we show its message instead of letting the program crash.
     try
     {
-        const Matrix result = calculate(operation, *first, *second);
+        const Matrix result = calculate(operation, *first, *second, scalar);
 
-        // Show the result in the table window from Step 8.
-        const QString title = QString("%1: %2, %3")
-                                  .arg(operationBox->currentText(),
-                                       firstName, secondName);
+        // Build the result window title, like: Addition: Mat A, B
+        QString title = operationBox->currentText() + ": " + firstName;
+        if (!extraText.isEmpty())
+            title += ", " + extraText;
+
         MatrixViewDialog dialog(title, result, this);
         dialog.exec();
 
@@ -348,6 +412,7 @@ void MainWindow::onCalculateClicked()
                              QString::fromUtf8(error.what()));
     }
 }
+
 
 // Refills the two matrix drop-down boxes from the store.
 void MainWindow::updateMatrixChoices()
@@ -425,3 +490,17 @@ void MainWindow::saveResult(const Matrix &result)
         return;
     }
 }
+
+// Shows or hides the boxes that the chosen operation needs.
+void MainWindow::onOperationChanged()
+{
+    const auto operation =
+        static_cast<Operation>(operationBox->currentData().toInt());
+
+    // The second matrix and the number are only shown when the operation uses them.
+    secondMatrixLabel->setVisible(usesSecondMatrix(operation));
+    secondMatrixBox->setVisible(usesSecondMatrix(operation));
+    scalarLabel->setVisible(usesNumber(operation));
+    scalarInput->setVisible(usesNumber(operation));
+}
+

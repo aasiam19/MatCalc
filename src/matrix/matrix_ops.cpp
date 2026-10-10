@@ -41,7 +41,33 @@ Matrix subtract(const Matrix &a, const Matrix &b)
     return result;
 }
 
-Matrix calculate(Operation operation, const Matrix &a, const Matrix &b)
+Matrix multiplyByScalar(const Matrix &a, double scalar)
+{
+    Matrix result(a.rows(), a.columns());
+
+    // Multiply the numbers one position at a time.
+    for (int i = 0; i < a.rows(); i++)
+        for (int j = 0; j < a.columns(); j++)
+            result.set(i, j, a.get(i, j) * scalar);
+
+    return result;
+}
+
+Matrix transpose(const Matrix &a)
+{
+    // The result has the rows and columns swapped.
+    Matrix result(a.columns(), a.rows());
+
+    // The number at row i, column j moves to row j, column i.
+    for (int i = 0; i < a.rows(); i++)
+        for (int j = 0; j < a.columns(); j++)
+            result.set(j, i, a.get(i, j));
+
+    return result;
+}
+
+Matrix calculate(Operation operation, const Matrix &a, const Matrix &b,
+                 double scalar)
 {
     // Pick the right math function for the chosen operation.
     switch (operation)
@@ -50,10 +76,13 @@ Matrix calculate(Operation operation, const Matrix &a, const Matrix &b)
         return add(a, b);
     case Operation::Subtraction:
         return subtract(a, b);
-    }
+    case Operation::ScalarMultiplication:
+        return multiplyByScalar(a, scalar);
+    case Operation::Transpose:
+        return transpose(a); 
+
+   }
 
     // Only reached if a new Operation is added above but not handled here.
     throw std::logic_error("Unknown operation.");
 }
-
-

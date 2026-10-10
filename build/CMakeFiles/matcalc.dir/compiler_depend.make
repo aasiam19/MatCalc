@@ -2184,6 +2184,7 @@ CMakeFiles/matcalc.dir/src/ui/main_window.cpp.o: /home/xiam/projects/matcalc/src
   /usr/include/x86_64-linux-gnu/qt6/QtCore/qvariant.h \
   /usr/include/x86_64-linux-gnu/qt6/QtCore/qvarlengtharray.h \
   /usr/include/x86_64-linux-gnu/qt6/QtCore/qversiontagging.h \
+  /usr/include/x86_64-linux-gnu/qt6/QtGui/QDoubleValidator \
   /usr/include/x86_64-linux-gnu/qt6/QtGui/QIntValidator \
   /usr/include/x86_64-linux-gnu/qt6/QtGui/qaction.h \
   /usr/include/x86_64-linux-gnu/qt6/QtGui/qbitmap.h \
@@ -3523,8 +3524,6 @@ CMakeFiles/matcalc.dir/src/ui/ui_helpers.cpp.o: /home/xiam/projects/matcalc/src/
 
 /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QTableWidget:
 
-/usr/include/x86_64-linux-gnu/qt6/QtGui/QDoubleValidator:
-
 /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qtabwidget.h:
 
 /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qstyle.h:
@@ -3560,6 +3559,8 @@ CMakeFiles/matcalc.dir/src/ui/ui_helpers.cpp.o: /home/xiam/projects/matcalc/src/
 /usr/include/x86_64-linux-gnu/qt6/QtGui/qtextoption.h:
 
 /usr/include/x86_64-linux-gnu/qt6/QtGui/qtextdocument.h:
+
+/usr/include/x86_64-linux-gnu/qt6/QtGui/QDoubleValidator:
 
 /usr/include/x86_64-linux-gnu/qt6/QtCore/qregularexpression.h:
 

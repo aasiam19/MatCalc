@@ -397,4 +397,5 @@ CMakeFiles/matcalc.dir/src/ui/main_window.cpp.o: \
  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QPushButton \
  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qpushbutton.h \
  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qabstractbutton.h \
- /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QVBoxLayout
+ /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QVBoxLayout \
+ /usr/include/x86_64-linux-gnu/qt6/QtGui/QDoubleValidator

@@ -10,6 +10,7 @@ class QComboBox;
 class QLineEdit;
 class QListWidget;
 class QListWidgetItem;
+class QLabel;
 
 // The main window of the application.
 class MainWindow : public QWidget
@@ -35,6 +36,9 @@ private:
     // Runs when the user presses the CALCULATE button.
     void onCalculateClicked();
 
+    // Runs when the user picks a different operation.
+    // Shows or hides the boxes that operation needs.
+    void onOperationChanged();
     // Refreshes the matrix drop-down boxes from what is in the store.
     void updateMatrixChoices();
 
@@ -59,6 +63,11 @@ private:
     QComboBox *operationBox;
     QComboBox *firstMatrixBox;
     QComboBox *secondMatrixBox;
+
+    // Used only by the scalar operation, and hidden for the others.
+    QLabel *secondMatrixLabel;
+    QLabel *scalarLabel;
+    QLineEdit *scalarInput;
     // All matrices the user has created. Lives as long as the window.
     MatrixStore store;
 };

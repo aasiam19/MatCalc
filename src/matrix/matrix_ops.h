@@ -15,12 +15,26 @@ Matrix add(const Matrix &a, const Matrix &b);
 Matrix subtract(const Matrix &a, const Matrix &b);
 
 // The operations the user can choose in the window.
+// Returns every number of a multiplied by the scalar (a plain number).
+Matrix multiplyByScalar(const Matrix &a, double scalar);
+
+
+// Returns the transpose of a: rows become columns and columns become rows.
+// A 2 x 3 matrix becomes 3 x 2.
+Matrix transpose(const Matrix &a);
+
+// The operations the user can choose in the window.
 enum class Operation
 {
     Addition,
-    Subtraction
+    Subtraction,
+    ScalarMultiplication,
+    Transpose
 };
 
-// Runs the chosen operation on two matrices and returns the result.
+// Runs the chosen operation and returns the result.
+// Operations that need only one matrix ignore b.
+// Only the scalar operation uses the scalar number.
 // Throws an exception with a readable message if it cannot be done.
-Matrix calculate(Operation operation, const Matrix &a, const Matrix &b);
+Matrix calculate(Operation operation, const Matrix &a, const Matrix &b,
+                 double scalar = 1.0);
