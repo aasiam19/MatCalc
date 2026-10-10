@@ -23,13 +23,19 @@ Matrix multiplyByScalar(const Matrix &a, double scalar);
 // A 2 x 3 matrix becomes 3 x 2.
 Matrix transpose(const Matrix &a);
 
+// Returns a x b (matrix multiplication).
+// The columns of a must equal the rows of b.
+// A (2 x 3) times a (3 x 4) gives a (2 x 4) result.
+Matrix multiply(const Matrix &a, const Matrix &b);
+
 // The operations the user can choose in the window.
 enum class Operation
 {
     Addition,
     Subtraction,
     ScalarMultiplication,
-    Transpose
+    Transpose,
+    Multiplication
 };
 
 // Runs the chosen operation and returns the result.

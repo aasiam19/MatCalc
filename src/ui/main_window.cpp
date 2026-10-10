@@ -26,8 +26,10 @@ namespace
     bool usesSecondMatrix(Operation operation)
     {
         return operation == Operation::Addition
-            || operation == Operation::Subtraction;
-    }
+            || operation == Operation::Subtraction
+            || operation == Operation::Multiplication;
+
+ }
 
     // True if the operation needs a plain number (Scalar multiplication).
     bool usesNumber(Operation operation)
@@ -120,12 +122,14 @@ void MainWindow::setupUi()
 
     // Row 1: which operation to do.
     operationBox = new QComboBox;
+
     // The second value is the hidden data: which Operation this entry means.
     operationBox->addItem("Addition", static_cast<int>(Operation::Addition));
     operationBox->addItem("Subtraction", static_cast<int>(Operation::Subtraction));    mainLayout->addWidget(operationBox);
-    operationBox->addItem("Scalar multiplication",
-                          static_cast<int>(Operation::ScalarMultiplication));
+    operationBox->addItem("Scalar multiplication", static_cast<int>(Operation::ScalarMultiplication));
     operationBox->addItem("Transpose", static_cast<int>(Operation::Transpose));
+    operationBox->addItem("Multiplication", static_cast<int>(Operation::Multiplication));
+
 
 	// Row 2: [First matrix:] [ box ] [Second matrix:] [ box ] [Number:] [ box ]
     // The second matrix and the number never show together:

@@ -1,5 +1,5 @@
 #include "matrix/matrix_ops.h"
-
+#include <string>
 #include <stdexcept>
 
 namespace
@@ -28,6 +28,7 @@ Matrix add(const Matrix &a, const Matrix &b)
     return result;
 }
 
+
 Matrix subtract(const Matrix &a, const Matrix &b)
 {
     requireSameSize(a, b);
@@ -41,6 +42,8 @@ Matrix subtract(const Matrix &a, const Matrix &b)
     return result;
 }
 
+
+
 Matrix multiplyByScalar(const Matrix &a, double scalar)
 {
     Matrix result(a.rows(), a.columns());
@@ -52,6 +55,8 @@ Matrix multiplyByScalar(const Matrix &a, double scalar)
 
     return result;
 }
+
+
 
 Matrix transpose(const Matrix &a)
 {
@@ -66,6 +71,44 @@ Matrix transpose(const Matrix &a)
     return result;
 }
 
+
+
+Matrix multiply(const Matrix &a, const Matrix &b)
+{
+    // The rule: columns of a must equal rows of b.
+    if (a.columns() != b.rows())
+    {
+        throw std::invalid_argument(
+            "Cannot multiply a " + std::to_string(a.rows()) + " x "
+            + std::to_string(a.columns()) + " matrix by a "
+            + std::to_string(b.rows()) + " x " + std::to_string(b.columns())
+            + " matrix.\nThe columns of the first matrix ("
+            + std::to_string(a.columns())
+            + ") must equal the rows of the second matrix ("
+            + std::to_string(b.rows()) + ").");
+    }
+
+    // The result has a's rows and b's columns.
+    Matrix result(a.rows(), b.columns());
+
+    for (int i = 0; i < a.rows(); i++)
+    {
+        for (int j = 0; j < b.columns(); j++)
+        {
+            // Entry (i, j) = row i of a times column j of b:
+            // multiply the pairs and add them up.
+            double sum = 0.0;
+            for (int k = 0; k < a.columns(); k++)
+                sum += a.get(i, k) * b.get(k, j);
+
+            result.set(i, j, sum);
+        }
+    }
+
+    return result;
+}
+
+
 Matrix calculate(Operation operation, const Matrix &a, const Matrix &b,
                  double scalar)
 {
@@ -79,8 +122,9 @@ Matrix calculate(Operation operation, const Matrix &a, const Matrix &b,
     case Operation::ScalarMultiplication:
         return multiplyByScalar(a, scalar);
     case Operation::Transpose:
-        return transpose(a); 
-
+        return transpose(a);
+    case Operation::Multiplication:
+        return multiply(a, b);
    }
 
     // Only reached if a new Operation is added above but not handled here.
