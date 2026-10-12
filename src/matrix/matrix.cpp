@@ -17,6 +17,9 @@ int Matrix::rows() const
 
 int Matrix::columns() const
 {
+    if (data.empty())
+        return 0;
+
     return static_cast<int>(data[0].size());
 }
 

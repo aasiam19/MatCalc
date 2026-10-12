@@ -15,6 +15,7 @@
 #include <QPushButton>
 #include <QVBoxLayout>
 #include <QDoubleValidator>
+#include <QLocale>
 
 // Settings in one place, so they are easy to change later.
 namespace
@@ -29,7 +30,7 @@ namespace
             || operation == Operation::Subtraction
             || operation == Operation::Multiplication;
 
- }
+    }
 
     // True if the operation needs a plain number (Scalar multiplication).
     bool usesNumber(Operation operation)
@@ -127,18 +128,22 @@ void MainWindow::setupUi()
     // ---- Operation picker ----
     mainLayout->addWidget(makeLabel("Operation:"));
 
-    // Row 1: which operation to do.
-    operationBox = new QComboBox;
-
+    // Create the box and add every operation first.
     // The second value is the hidden data: which Operation this entry means.
+    operationBox = new QComboBox;
     operationBox->addItem("Addition", static_cast<int>(Operation::Addition));
-    operationBox->addItem("Subtraction", static_cast<int>(Operation::Subtraction));    mainLayout->addWidget(operationBox);
-    operationBox->addItem("Scalar multiplication", static_cast<int>(Operation::ScalarMultiplication));
+    operationBox->addItem("Subtraction", static_cast<int>(Operation::Subtraction));
+    operationBox->addItem("Scalar multiplication",
+                          static_cast<int>(Operation::ScalarMultiplication));
     operationBox->addItem("Transpose", static_cast<int>(Operation::Transpose));
     operationBox->addItem("Multiplication", static_cast<int>(Operation::Multiplication));
     operationBox->addItem("Determinant", static_cast<int>(Operation::Determinant));
     operationBox->addItem("Row echelon form", static_cast<int>(Operation::RowEchelonForm));
-	// Row 2: [First matrix:] [ box ] [Second matrix:] [ box ] [Number:] [ box ]
+
+    // Then put it on the screen.
+    mainLayout->addWidget(operationBox);
+
+    // Row 2: [First matrix:] [ box ] [Second matrix:] [ box ] [Number:] [ box ]
     // The second matrix and the number never show together:
     // onOperationChanged() decides which one is visible.
     auto *pickLayout = new QHBoxLayout;
@@ -151,7 +156,9 @@ void MainWindow::setupUi()
     scalarInput->setText("2");
     scalarInput->setFixedWidth(80);
     scalarInput->setAlignment(Qt::AlignCenter);
-    scalarInput->setValidator(new QDoubleValidator(scalarInput));
+    auto *scalarValidator = new QDoubleValidator(scalarInput);
+    scalarValidator->setLocale(QLocale::c());
+    scalarInput->setValidator(scalarValidator);
 
     pickLayout->addWidget(makeLabel("First matrix:"));
     pickLayout->addWidget(firstMatrixBox);
@@ -299,8 +306,8 @@ void MainWindow::updateMatrixList()
 
         matrixList->addItem(item);
     }
-	// Keep the operation picker's drop-down boxes in sync with the list.
-    	updateMatrixChoices();
+    // Keep the operation picker's drop-down boxes in sync with the list.
+    updateMatrixChoices();
 
 }
 // Called when the user presses VIEW.
